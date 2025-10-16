@@ -1,13 +1,14 @@
 // app/portfolio/[id]/page.tsx
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, use } from 'react';
 import { motion } from 'framer-motion';
 import { notFound } from 'next/navigation';
 import { getProjectById, projects } from '@/app/data/projects';
 import Link from 'next/link';
 
-export default function ProjectDetail({ params }: { params: { id: string } }) {
+export default function ProjectDetail({ params }: { params: Promise<{ id: string }> }) {
+  const resolvedParams = use(params);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
@@ -29,7 +30,7 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
     return () => clearInterval(interval);
   }, []);
 
-  const project = getProjectById(params.id);
+  const project = getProjectById(resolvedParams.id);
 
   if (!project) {
     notFound();
