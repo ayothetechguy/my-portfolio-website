@@ -63,7 +63,7 @@ export default function About() {
               {/* Logo with Profile Image */}
               <Link href="/" className="flex items-center space-x-3 group">
                 <img
-                  src="/head.jpg"
+                  src="/Head.jpg"
                   alt="Ayoolumi Melehon"
                   className="w-10 h-10 rounded-full object-cover border-2 border-white/30 group-hover:border-white/60 transition"
                 />
