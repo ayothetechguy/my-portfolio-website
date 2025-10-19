@@ -1,5 +1,4 @@
 // app/data/projects.ts
-
 export interface Project {
   id: string;
   title: string;
@@ -175,8 +174,6 @@ export const projects: Project[] = [
     ],
     completionDate: '2024'
   },
-
-
   {
     id: 'nhs-ae-wait-time-prediction',
     title: 'NHS A&E Wait Time Prediction System',
@@ -203,8 +200,6 @@ export const projects: Project[] = [
     ],
     completionDate: '2024'
   },
-
-
   {
     id: 'feedback-topic-modeler',
     title: 'Feedback Topic Modeler & Summarizer',
@@ -438,6 +433,41 @@ export const projects: Project[] = [
       'Privacy protection is paramount when working with microdata'
     ],
     completionDate: '2024'
+  },
+  {
+    id: 'pneumonia-detection-system',
+    title: 'AI-Powered Pneumonia Detection System',
+    category: 'ML & AI',
+    shortDescription: 'Deep learning chest X-ray analysis system with automated risk assessment and PDF reporting (85.58% accuracy using ResNet-18).',
+    problem: 'Healthcare providers need rapid, accurate pneumonia screening from chest X-rays, but manual analysis is time-consuming and requires specialist expertise. Patients also need comprehensive risk assessment based on clinical symptoms.',
+    solution: 'Developed an AI-powered diagnostic system using PyTorch ResNet-18 CNN for chest X-ray classification, integrated with clinical risk scoring algorithm and automated PDF report generation with visualizations.',
+    impact: 'Provides instant pneumonia detection with 85.58% accuracy, comprehensive patient risk assessment, and professional medical reports - enabling faster clinical decision-making and improved patient care workflows.',
+    techStack: ['Python', 'PyTorch', 'Streamlit', 'ReportLab', 'Matplotlib', 'ResNet-18', 'Computer Vision', 'Deep Learning'],
+    githubUrl: 'https://github.com/ayothetechguy/pneumonia-detection-system',
+    liveDemoUrl: 'https://ayothetechguy-pneumonia-detection-system.streamlit.app',
+    videoUrl: '',
+    screenshots: [
+      '/projects/pneumonia-detection-1.png',
+      '/projects/pneumonia-detection-2.png',
+      '/projects/pneumonia-detection-3.png'
+    ],
+    features: [
+      'ResNet-18 CNN trained for binary classification (Normal vs Pneumonia)',
+      'Real-time chest X-ray analysis with confidence scoring',
+      'Clinical risk assessment algorithm based on patient symptoms and medical history',
+      'Automated PDF report generation with colorful charts and visualizations',
+      'Interactive patient data entry with comprehensive symptom tracking',
+      'Cloud-deployed model hosting using Google Drive integration',
+      'Beautiful medical-grade UI with professional design'
+    ],
+    learnings: [
+      'Deep learning model deployment requires careful handling of large model files (used Google Drive hosting)',
+      'Medical AI applications need explainable predictions and confidence scores for clinical trust',
+      'Combining ML predictions with rule-based clinical assessment provides comprehensive patient evaluation',
+      'UI/UX design for healthcare applications requires clarity and professional medical aesthetics',
+      'Python 3.13 compatibility issues with PyTorch required version management during deployment'
+    ],
+    completionDate: '2025'
   }
 ];
 
