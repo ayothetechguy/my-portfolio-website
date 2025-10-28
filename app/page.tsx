@@ -253,112 +253,123 @@ export default function Home() {
           </div>
         </motion.nav>
 
-        {/* Hero Section */}
+        {/* Hero Section - Split Screen */}
         <motion.section 
           style={{ opacity: heroOpacity, scale: heroScale }}
           className="relative flex items-center justify-center min-h-screen pt-20 px-4"
         >
-          <div className="relative w-full max-w-7xl mx-auto text-center">
+          <div className="relative w-full max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: "easeOut" }}
             >
-              {/* Specialty Blocks - Professional Grid */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12 max-w-6xl mx-auto"
-              >
-                {[
-                  {
-                    icon: '🏥',
-                    title: 'Healthcare AI',
-                    subtitle: 'Predictive Models',
-                    gradient: 'from-blue-600 to-cyan-600',
-                    borderColor: 'border-blue-500/30',
-                    hoverBorder: 'hover:border-blue-400',
-                    shadowColor: 'hover:shadow-blue-500/30',
-                  },
-                  {
-                    icon: '📊',
-                    title: 'Business Intelligence',
-                    subtitle: 'Dashboards & Reports',
-                    gradient: 'from-purple-600 to-pink-600',
-                    borderColor: 'border-purple-500/30',
-                    hoverBorder: 'hover:border-purple-400',
-                    shadowColor: 'hover:shadow-purple-500/30',
-                  },
-                  {
-                    icon: '⚙️',
-                    title: 'Analytics Engineering',
-                    subtitle: 'Data Pipelines',
-                    gradient: 'from-cyan-600 to-teal-600',
-                    borderColor: 'border-cyan-500/30',
-                    hoverBorder: 'hover:border-cyan-400',
-                    shadowColor: 'hover:shadow-cyan-500/30',
-                  },
-                ].map((specialty, index) => (
-                  <motion.div
-                    key={specialty.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                    whileHover={{ y: -8, scale: 1.03 }}
-                    className={`relative group p-6 bg-white/5 backdrop-blur-xl rounded-2xl border-2 ${specialty.borderColor} ${specialty.hoverBorder} ${specialty.shadowColor} shadow-2xl transition-all duration-300 cursor-default`}
-                  >
-                    {/* Glow effect on hover */}
-                    <div className={`absolute -inset-1 bg-gradient-to-r ${specialty.gradient} rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition duration-500`} />
+              {/* Split Screen Layout */}
+              <div className="grid md:grid-cols-2 gap-8 items-center mb-10">
+                {/* LEFT SIDE - Large Number Statement */}
+                <motion.div
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="text-center md:text-right"
+                >
+                  <div className="relative inline-block">
+                    {/* Glow effect */}
+                    <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 rounded-3xl blur-3xl opacity-30 animate-pulse" />
                     
-                    <div className="relative z-10">
-                      {/* Icon with gradient background */}
-                      <motion.div
-                        className={`w-16 h-16 mx-auto mb-4 bg-gradient-to-br ${specialty.gradient} rounded-2xl flex items-center justify-center shadow-2xl`}
-                        whileHover={{ rotate: 360, scale: 1.1 }}
-                        transition={{ duration: 0.6 }}
-                      >
-                        <span className="text-4xl">{specialty.icon}</span>
-                      </motion.div>
-                      
-                      {/* Title with gradient text */}
-                      <h3 className={`text-2xl font-bold mb-2 bg-gradient-to-r ${specialty.gradient} bg-clip-text text-transparent`}>
-                        {specialty.title}
-                      </h3>
-                      
-                      {/* Animated underline */}
-                      <motion.div
-                        className={`h-1 bg-gradient-to-r ${specialty.gradient} mx-auto mb-3 rounded-full`}
-                        initial={{ width: 0 }}
-                        animate={{ width: '60%' }}
-                        transition={{ duration: 1, delay: 0.5 + index * 0.1 }}
-                      />
-                      
-                      {/* Subtitle */}
-                      <p className="text-gray-300 font-medium text-lg">
-                        {specialty.subtitle}
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      className="relative"
+                    >
+                      <h2 className="text-8xl sm:text-9xl lg:text-[12rem] font-black leading-none mb-2">
+                        <span className="bg-gradient-to-br from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                          03
+                        </span>
+                      </h2>
+                      <p className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white uppercase tracking-wider">
+                        Specialties
                       </p>
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
+                    </motion.div>
+                  </div>
+                </motion.div>
 
-              {/* Main tagline */}
+                {/* RIGHT SIDE - List of Specialties */}
+                <motion.div
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                  className="space-y-4"
+                >
+                  {[
+                    { 
+                      icon: '🏥', 
+                      title: 'Healthcare AI',
+                      gradient: 'from-blue-500 to-cyan-500',
+                      borderColor: 'border-blue-500/30',
+                      shadowColor: 'hover:shadow-blue-500/50',
+                    },
+                    { 
+                      icon: '📊', 
+                      title: 'Business Intelligence',
+                      gradient: 'from-purple-500 to-pink-500',
+                      borderColor: 'border-purple-500/30',
+                      shadowColor: 'hover:shadow-purple-500/50',
+                    },
+                    { 
+                      icon: '⚙️', 
+                      title: 'Analytics Engineering',
+                      gradient: 'from-cyan-500 to-teal-500',
+                      borderColor: 'border-cyan-500/30',
+                      shadowColor: 'hover:shadow-cyan-500/50',
+                    },
+                  ].map((specialty, index) => (
+                    <motion.div
+                      key={specialty.title}
+                      initial={{ opacity: 0, x: 50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.6 + index * 0.15 }}
+                      whileHover={{ x: 10, scale: 1.02 }}
+                      className={`group relative p-5 bg-white/5 backdrop-blur-xl rounded-2xl border-2 ${specialty.borderColor} ${specialty.shadowColor} shadow-2xl transition-all duration-300 cursor-default`}
+                    >
+                      {/* Hover glow */}
+                      <div className={`absolute -inset-1 bg-gradient-to-r ${specialty.gradient} rounded-2xl blur-xl opacity-0 group-hover:opacity-40 transition duration-500`} />
+                      
+                      <div className="relative flex items-center gap-4">
+                        <motion.div
+                          whileHover={{ rotate: 360, scale: 1.2 }}
+                          transition={{ duration: 0.6 }}
+                          className={`w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-br ${specialty.gradient} shadow-2xl flex-shrink-0`}
+                        >
+                          <span className="text-3xl">{specialty.icon}</span>
+                        </motion.div>
+                        
+                        <div>
+                          <h3 className={`text-2xl sm:text-3xl font-bold bg-gradient-to-r ${specialty.gradient} bg-clip-text text-transparent`}>
+                            {specialty.title}
+                          </h3>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </div>
+
+              {/* Tagline */}
               <motion.p 
-                className="text-xl sm:text-2xl text-gray-100 mb-6 max-w-5xl mx-auto font-light drop-shadow-2xl"
+                className="text-lg sm:text-xl text-gray-200 mb-6 max-w-4xl mx-auto text-center font-light"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
+                transition={{ duration: 0.8, delay: 1.2 }}
               >
-                Data Analyst building intelligent systems that transform complex data into actionable insights
+                Data Analyst building predictive models, intelligent dashboards, and production systems
               </motion.p>
               
               {/* Credentials */}
               <motion.div
-                className="flex flex-wrap items-center justify-center gap-3 mb-10 text-base sm:text-lg"
+                className="flex flex-wrap items-center justify-center gap-3 mb-8 text-base sm:text-lg"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1 }}
+                transition={{ duration: 0.8, delay: 1.4 }}
               >
                 {[
                   { icon: '🎓', text: 'MSc AI' },
@@ -381,7 +392,7 @@ export default function Home() {
                 className="flex gap-4 justify-center flex-wrap"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.2 }}
+                transition={{ duration: 0.8, delay: 1.6 }}
               >
                 <motion.div
                   whileHover={{ scale: 1.05 }}
