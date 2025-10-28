@@ -133,15 +133,12 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Scroll progress bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 z-[100] origin-left"
         style={{ scaleX: scrollYProgress }}
       />
 
-      {/* DARK HERO SECTION */}
       <div className="relative bg-slate-950 overflow-hidden">
-        {/* Background Images */}
         <div className="absolute inset-0 z-0">
           {backgroundImages.map((image, index) => (
             <motion.div
@@ -176,7 +173,6 @@ export default function Home() {
         </div>
 
         <div className="relative z-10">
-          {/* Navigation */}
           <motion.nav 
             initial={{ y: -100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -255,7 +251,6 @@ export default function Home() {
             </div>
           </motion.nav>
 
-          {/* Hero Section */}
           <motion.section 
             style={{ opacity: heroOpacity, scale: heroScale }}
             className="relative flex items-center justify-center min-h-screen pt-20 px-4"
@@ -266,7 +261,6 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeOut" }}
               >
-                {/* Badge */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -278,9 +272,7 @@ export default function Home() {
                   </div>
                 </motion.div>
 
-                {/* Split Screen */}
                 <div className="grid md:grid-cols-2 gap-8 items-center mb-10">
-                  {/* LEFT */}
                   <motion.div
                     initial={{ opacity: 0, x: -50 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -303,7 +295,6 @@ export default function Home() {
                     </div>
                   </motion.div>
 
-                  {/* RIGHT */}
                   <motion.div
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -363,7 +354,6 @@ export default function Home() {
                   </motion.div>
                 </div>
 
-                {/* Tagline */}
                 <motion.p 
                   className="text-lg sm:text-xl text-gray-200 mb-6 max-w-4xl mx-auto text-center font-light"
                   initial={{ opacity: 0, y: 20 }}
@@ -373,7 +363,6 @@ export default function Home() {
                   Data Analyst building predictive models, intelligent dashboards, and production systems
                 </motion.p>
                 
-                {/* Credentials */}
                 <motion.div
                   className="flex flex-wrap items-center justify-center gap-3 mb-8 text-base sm:text-lg"
                   initial={{ opacity: 0, y: 20 }}
@@ -396,7 +385,6 @@ export default function Home() {
                   ))}
                 </motion.div>
                 
-                {/* CTA Buttons */}
                 <motion.div 
                   className="flex gap-4 justify-center flex-wrap"
                   initial={{ opacity: 0, y: 20 }}
@@ -437,7 +425,6 @@ export default function Home() {
             <ScrollIndicator />
           </motion.section>
 
-          {/* Stats Section */}
           <section className="py-20 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-cyan-600/20" />
             <div className="absolute inset-0 backdrop-blur-sm" />
@@ -475,9 +462,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* LIGHT SECTIONS */}
-
-      {/* Specialties Detail */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -556,7 +540,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Portfolio Grid */}
       <section className="py-20 px-4 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -613,7 +596,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="py-20 px-4 bg-gradient-to-br from-teal-600 to-blue-600 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
@@ -643,7 +625,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
