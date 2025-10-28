@@ -39,7 +39,7 @@ function AnimatedCounter({ target, suffix = '' }: { target: number; suffix?: str
   );
 }
 
-// Enhanced floating particles with connections
+// Enhanced floating particles
 function FloatingParticles() {
   const particles = Array.from({ length: 40 }, (_, i) => ({
     id: i,
@@ -108,7 +108,6 @@ function ScrollIndicator() {
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [scrollProgress, setScrollProgress] = useState(0);
   
   const { scrollYProgress } = useScroll();
   const heroOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
@@ -132,17 +131,6 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
-      const currentProgress = (window.scrollY / totalScroll) * 100;
-      setScrollProgress(currentProgress);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
     <div className="min-h-screen bg-slate-950 relative overflow-x-hidden">
       {/* Scroll progress bar */}
@@ -151,7 +139,7 @@ export default function Home() {
         style={{ scaleX: scrollYProgress }}
       />
 
-      {/* Background Images with parallax */}
+      {/* Background Images */}
       <div className="fixed inset-0 z-0">
         {backgroundImages.map((image, index) => (
           <motion.div
@@ -175,21 +163,18 @@ export default function Home() {
           />
         ))}
         
-        {/* Enhanced gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-900/85 to-slate-950/90" />
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/10 via-purple-900/10 to-cyan-900/10" />
         
-        {/* Floating Particles */}
         <FloatingParticles />
         
-        {/* Mesh gradient overlay */}
         <div className="absolute inset-0 opacity-30">
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-500/20 via-transparent to-purple-500/20 blur-3xl animate-pulse" />
         </div>
       </div>
 
       <div className="relative z-10">
-        {/* Navigation with glassmorphism */}
+        {/* Navigation */}
         <motion.nav 
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -268,7 +253,7 @@ export default function Home() {
           </div>
         </motion.nav>
 
-        {/* Hero Section with enhanced animations */}
+        {/* Hero Section */}
         <motion.section 
           style={{ opacity: heroOpacity, scale: heroScale }}
           className="relative flex items-center justify-center min-h-screen pt-20 px-4"
@@ -279,91 +264,101 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: "easeOut" }}
             >
-              {/* Main headline with enhanced gradient */}
-              <motion.h1 
-                className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold mb-8 leading-tight"
+              {/* Specialty Blocks - Professional Grid */}
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
+                className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12 max-w-6xl mx-auto"
               >
-                <motion.span
-                  className="inline-block bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent"
-                  animate={{
-                    backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-                  }}
-                  transition={{
-                    duration: 5,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                  style={{
-                    backgroundSize: '200% 200%',
-                  }}
-                >
-                  Healthcare AI
-                </motion.span>
-                {' '}
-                <span className="text-white/80">•</span>
-                {' '}
-                <motion.span
-                  className="inline-block bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent"
-                  animate={{
-                    backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-                  }}
-                  transition={{
-                    duration: 5,
-                    repeat: Infinity,
-                    ease: "linear",
-                    delay: 1,
-                  }}
-                  style={{
-                    backgroundSize: '200% 200%',
-                  }}
-                >
-                  Business Intelligence
-                </motion.span>
-                <br className="hidden sm:block" />
-                {' '}
-                <span className="text-white/80">•</span>
-                {' '}
-                <motion.span
-                  className="inline-block bg-gradient-to-r from-cyan-400 via-teal-400 to-purple-400 bg-clip-text text-transparent"
-                  animate={{
-                    backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-                  }}
-                  transition={{
-                    duration: 5,
-                    repeat: Infinity,
-                    ease: "linear",
-                    delay: 2,
-                  }}
-                  style={{
-                    backgroundSize: '200% 200%',
-                  }}
-                >
-                  Analytics Engineering
-                </motion.span>
-              </motion.h1>
-              
-              {/* Subheadline with typing effect style */}
+                {[
+                  {
+                    icon: '🏥',
+                    title: 'Healthcare AI',
+                    subtitle: 'Predictive Models',
+                    gradient: 'from-blue-600 to-cyan-600',
+                    borderColor: 'border-blue-500/30',
+                    hoverBorder: 'hover:border-blue-400',
+                    shadowColor: 'hover:shadow-blue-500/30',
+                  },
+                  {
+                    icon: '📊',
+                    title: 'Business Intelligence',
+                    subtitle: 'Dashboards & Reports',
+                    gradient: 'from-purple-600 to-pink-600',
+                    borderColor: 'border-purple-500/30',
+                    hoverBorder: 'hover:border-purple-400',
+                    shadowColor: 'hover:shadow-purple-500/30',
+                  },
+                  {
+                    icon: '⚙️',
+                    title: 'Analytics Engineering',
+                    subtitle: 'Data Pipelines',
+                    gradient: 'from-cyan-600 to-teal-600',
+                    borderColor: 'border-cyan-500/30',
+                    hoverBorder: 'hover:border-cyan-400',
+                    shadowColor: 'hover:shadow-cyan-500/30',
+                  },
+                ].map((specialty, index) => (
+                  <motion.div
+                    key={specialty.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                    whileHover={{ y: -8, scale: 1.03 }}
+                    className={`relative group p-6 bg-white/5 backdrop-blur-xl rounded-2xl border-2 ${specialty.borderColor} ${specialty.hoverBorder} ${specialty.shadowColor} shadow-2xl transition-all duration-300 cursor-default`}
+                  >
+                    {/* Glow effect on hover */}
+                    <div className={`absolute -inset-1 bg-gradient-to-r ${specialty.gradient} rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition duration-500`} />
+                    
+                    <div className="relative z-10">
+                      {/* Icon with gradient background */}
+                      <motion.div
+                        className={`w-16 h-16 mx-auto mb-4 bg-gradient-to-br ${specialty.gradient} rounded-2xl flex items-center justify-center shadow-2xl`}
+                        whileHover={{ rotate: 360, scale: 1.1 }}
+                        transition={{ duration: 0.6 }}
+                      >
+                        <span className="text-4xl">{specialty.icon}</span>
+                      </motion.div>
+                      
+                      {/* Title with gradient text */}
+                      <h3 className={`text-2xl font-bold mb-2 bg-gradient-to-r ${specialty.gradient} bg-clip-text text-transparent`}>
+                        {specialty.title}
+                      </h3>
+                      
+                      {/* Animated underline */}
+                      <motion.div
+                        className={`h-1 bg-gradient-to-r ${specialty.gradient} mx-auto mb-3 rounded-full`}
+                        initial={{ width: 0 }}
+                        animate={{ width: '60%' }}
+                        transition={{ duration: 1, delay: 0.5 + index * 0.1 }}
+                      />
+                      
+                      {/* Subtitle */}
+                      <p className="text-gray-300 font-medium text-lg">
+                        {specialty.subtitle}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              {/* Main tagline */}
               <motion.p 
-                className="text-xl sm:text-2xl md:text-3xl text-gray-100 mb-6 max-w-5xl mx-auto font-light drop-shadow-2xl"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-              >
-                Data Analyst building{' '}
-                <span className="text-blue-300 font-semibold">predictive models</span>,{' '}
-                <span className="text-purple-300 font-semibold">intelligent dashboards</span>,{' '}
-                and <span className="text-cyan-300 font-semibold">production systems</span>
-              </motion.p>
-              
-              {/* Credentials with enhanced styling */}
-              <motion.div
-                className="flex flex-wrap items-center justify-center gap-4 mb-12 text-lg sm:text-xl"
+                className="text-xl sm:text-2xl text-gray-100 mb-6 max-w-5xl mx-auto font-light drop-shadow-2xl"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
+              >
+                Data Analyst building intelligent systems that transform complex data into actionable insights
+              </motion.p>
+              
+              {/* Credentials */}
+              <motion.div
+                className="flex flex-wrap items-center justify-center gap-3 mb-10 text-base sm:text-lg"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1 }}
               >
                 {[
                   { icon: '🎓', text: 'MSc AI' },
@@ -373,7 +368,7 @@ export default function Home() {
                   <motion.div
                     key={index}
                     whileHover={{ scale: 1.05, y: -2 }}
-                    className="px-5 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-gray-100 shadow-xl hover:bg-white/15 hover:border-white/30 transition-all cursor-default"
+                    className="px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-gray-100 shadow-xl hover:bg-white/15 hover:border-white/30 transition-all cursor-default"
                   >
                     <span className="mr-2">{item.icon}</span>
                     {item.text}
@@ -381,12 +376,12 @@ export default function Home() {
                 ))}
               </motion.div>
               
-              {/* CTA Buttons with enhanced effects */}
+              {/* CTA Buttons */}
               <motion.div 
-                className="flex gap-4 sm:gap-6 justify-center flex-wrap"
+                className="flex gap-4 justify-center flex-wrap"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1 }}
+                transition={{ duration: 0.8, delay: 1.2 }}
               >
                 <motion.div
                   whileHover={{ scale: 1.05 }}
@@ -419,22 +414,21 @@ export default function Home() {
             </motion.div>
           </div>
           
-          {/* Scroll indicator */}
           <ScrollIndicator />
         </motion.section>
 
-        {/* Core Capabilities with 3D effects */}
-        <section className="py-20 relative">
+        {/* Core Capabilities */}
+        <section className="py-16 relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="text-center mb-16"
+              className="text-center mb-12"
             >
               <motion.h2 
-                className="text-4xl sm:text-5xl font-display font-bold text-white mb-4 drop-shadow-2xl"
+                className="text-4xl sm:text-5xl font-display font-bold text-white mb-3 drop-shadow-2xl"
                 whileInView={{ scale: [0.9, 1] }}
                 viewport={{ once: true }}
               >
@@ -444,11 +438,10 @@ export default function Home() {
             </motion.div>
 
             <div className="relative">
-              {/* Background glow effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-cyan-500/5 rounded-3xl blur-3xl" />
               
-              <div className="relative bg-white/5 backdrop-blur-2xl p-6 sm:p-10 rounded-3xl border-2 border-white/10 shadow-2xl">
-                <div className="grid md:grid-cols-3 gap-8">
+              <div className="relative bg-white/5 backdrop-blur-2xl p-6 sm:p-8 rounded-3xl border-2 border-white/10 shadow-2xl">
+                <div className="grid md:grid-cols-3 gap-6">
                   {[
                     {
                       title: 'Analytics & BI',
@@ -476,14 +469,10 @@ export default function Home() {
                       key={card.title}
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: i * 0.15 }}
+                      transition={{ duration: 0.6, delay: i * 0.1 }}
                       viewport={{ once: true }}
-                      whileHover={{ 
-                        y: -12, 
-                        scale: 1.03,
-                        rotateY: 5,
-                      }}
-                      className="group relative p-8 rounded-2xl transition-all duration-500 cursor-default"
+                      whileHover={{ y: -8, scale: 1.02 }}
+                      className="group relative p-6 rounded-2xl transition-all duration-500 cursor-default"
                       style={{
                         background: `linear-gradient(135deg, ${card.color === 'blue' ? 'rgba(37, 99, 235, 0.15)' : card.color === 'purple' ? 'rgba(147, 51, 234, 0.15)' : 'rgba(6, 182, 212, 0.15)'} 0%, rgba(0, 0, 0, 0.1) 100%)`,
                         backdropFilter: 'blur(20px)',
@@ -491,34 +480,32 @@ export default function Home() {
                         boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)',
                       }}
                     >
-                      {/* Hover glow effect */}
                       <div className={`absolute -inset-1 bg-gradient-to-r ${card.gradient} rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition duration-500`} />
                       
                       <div className="relative z-10">
-                        {/* Icon */}
                         <motion.div 
-                          className={`w-14 h-14 bg-gradient-to-br ${card.gradient} rounded-xl flex items-center justify-center mb-6 shadow-2xl`}
+                          className={`w-12 h-12 bg-gradient-to-br ${card.gradient} rounded-xl flex items-center justify-center mb-4 shadow-2xl`}
                           whileHover={{ rotate: 360, scale: 1.1 }}
                           transition={{ duration: 0.8 }}
                         >
-                          <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={card.icon} />
                           </svg>
                         </motion.div>
                         
-                        <h3 className="text-2xl font-bold text-white mb-5">{card.title}</h3>
+                        <h3 className="text-2xl font-bold text-white mb-4">{card.title}</h3>
                         
-                        <ul className="space-y-3 text-gray-200 mb-6">
+                        <ul className="space-y-2 text-gray-200 mb-5">
                           {card.items.map((item, idx) => (
                             <motion.li 
                               key={idx}
                               initial={{ opacity: 0, x: -10 }}
                               whileInView={{ opacity: 1, x: 0 }}
-                              transition={{ delay: i * 0.15 + idx * 0.1 }}
+                              transition={{ delay: i * 0.1 + idx * 0.05 }}
                               viewport={{ once: true }}
-                              className="flex items-start"
+                              className="flex items-start text-sm"
                             >
-                              <span className={`text-${card.color}-400 mr-2 text-lg`}>•</span>
+                              <span className={`text-${card.color}-400 mr-2`}>•</span>
                               <span>{item}</span>
                             </motion.li>
                           ))}
@@ -526,11 +513,11 @@ export default function Home() {
                         
                         <Link 
                           href="/services" 
-                          className={`inline-flex items-center text-${card.color}-300 hover:text-${card.color}-200 font-semibold group/link transition-all`}
+                          className={`inline-flex items-center text-${card.color}-300 hover:text-${card.color}-200 font-semibold group/link transition-all text-sm`}
                         >
                           Learn More
                           <motion.svg 
-                            className="w-5 h-5 ml-2" 
+                            className="w-4 h-4 ml-2" 
                             fill="none" 
                             viewBox="0 0 24 24" 
                             stroke="currentColor"
@@ -549,15 +536,14 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Animated Stats Bar with enhanced design */}
-        <section className="py-24 relative overflow-hidden">
-          {/* Background effects */}
+        {/* Animated Stats */}
+        <section className="py-20 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-cyan-600/20" />
           <div className="absolute inset-0 backdrop-blur-sm" />
           <div className="absolute inset-0 bg-slate-900/80" />
           
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {[
                 { value: 8, suffix: '+', label: 'Years Experience', color: 'blue' },
                 { value: 17, suffix: '+', label: 'Portfolio Projects', color: 'purple' },
@@ -570,32 +556,30 @@ export default function Home() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  whileHover={{ scale: 1.1, rotateY: 10 }}
+                  whileHover={{ scale: 1.1 }}
                   className="text-center cursor-default group"
                 >
                   <div className="relative inline-block">
-                    {/* Glow effect */}
                     <div className={`absolute -inset-4 bg-gradient-to-r from-${stat.color}-500 to-${stat.color}-600 rounded-full blur-2xl opacity-0 group-hover:opacity-40 transition duration-500`} />
                     
                     <motion.div 
-                      className={`relative text-5xl sm:text-6xl font-bold mb-3 bg-gradient-to-r from-${stat.color}-400 to-${stat.color}-200 bg-clip-text text-transparent`}
+                      className={`relative text-4xl sm:text-5xl font-bold mb-2 bg-gradient-to-r from-${stat.color}-400 to-${stat.color}-200 bg-clip-text text-transparent`}
                       whileHover={{ scale: 1.1 }}
                     >
                       {stat.special || <AnimatedCounter target={stat.value} suffix={stat.suffix} />}
                     </motion.div>
                   </div>
-                  <div className="text-gray-300 font-medium text-lg">{stat.label}</div>
+                  <div className="text-gray-300 font-medium text-sm sm:text-base">{stat.label}</div>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Footer with enhanced design */}
-        <footer className="relative bg-slate-950/50 backdrop-blur-xl border-t border-white/10 py-12">
+        {/* Footer */}
+        <footer className="relative bg-slate-950/50 backdrop-blur-xl border-t border-white/10 py-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Social Links with 3D effect */}
-            <div className="flex justify-center gap-6 mb-8">
+            <div className="flex justify-center gap-6 mb-6">
               {[
                 { href: 'mailto:ayoolumimelehon@gmail.com', title: 'Email', path: 'M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z', color: 'blue' },
                 { href: 'https://www.linkedin.com/in/ayoolumi-melehon-b63237179/', title: 'LinkedIn', path: 'M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z', color: 'purple' },
@@ -607,7 +591,7 @@ export default function Home() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.3, y: -5, rotateZ: 10 }}
+                  whileHover={{ scale: 1.3, y: -5 }}
                   whileTap={{ scale: 0.9 }}
                   className="group relative"
                   title={social.title}
@@ -616,8 +600,8 @@ export default function Home() {
                   transition={{ delay: idx * 0.1 }}
                 >
                   <div className={`absolute -inset-2 bg-gradient-to-r from-${social.color}-500 to-${social.color}-600 rounded-full blur opacity-0 group-hover:opacity-50 transition duration-300`} />
-                  <div className="relative w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 group-hover:bg-white/20 group-hover:border-white/40 transition-all">
-                    <svg className="w-6 h-6 text-gray-300 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                  <div className="relative w-11 h-11 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 group-hover:bg-white/20 group-hover:border-white/40 transition-all">
+                    <svg className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
                       <path d={social.path} />
                     </svg>
                   </div>
@@ -625,17 +609,16 @@ export default function Home() {
               ))}
             </div>
             
-            {/* Copyright */}
             <motion.div 
               className="text-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              <p className="text-gray-400 mb-2">
+              <p className="text-gray-400 mb-1 text-sm">
                 © 2025 Ayoolumi Melehon | Grangemouth, Scotland
               </p>
-              <p className="text-gray-500 text-sm">
+              <p className="text-gray-500 text-xs">
                 Built with Next.js, TypeScript, Tailwind CSS & Framer Motion
               </p>
             </motion.div>
