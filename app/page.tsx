@@ -138,7 +138,8 @@ export default function Home() {
         </div>
       </motion.nav>
 
-      <section className="py-20 px-4 bg-gradient-to-br from-white via-blue-50 to-teal-50">
+      {/* Hero Section - White Background */}
+      <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -169,15 +170,15 @@ export default function Home() {
               </p>
 
               <div className="flex flex-wrap gap-3 mb-8 text-sm">
-                <span className="flex items-center gap-2 px-3 py-1 bg-white border border-gray-200 rounded-full text-gray-700 shadow-sm">
+                <span className="flex items-center gap-2 px-3 py-1 bg-gray-50 border border-gray-200 rounded-full text-gray-700 shadow-sm">
                   <span className="w-2 h-2 bg-teal-500 rounded-full animate-pulse"></span>
                   MSc Artificial Intelligence
                 </span>
-                <span className="flex items-center gap-2 px-3 py-1 bg-white border border-gray-200 rounded-full text-gray-700 shadow-sm">
+                <span className="flex items-center gap-2 px-3 py-1 bg-gray-50 border border-gray-200 rounded-full text-gray-700 shadow-sm">
                   <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
                   CompTIA Data+ Certified
                 </span>
-                <span className="flex items-center gap-2 px-3 py-1 bg-white border border-gray-200 rounded-full text-gray-700 shadow-sm">
+                <span className="flex items-center gap-2 px-3 py-1 bg-gray-50 border border-gray-200 rounded-full text-gray-700 shadow-sm">
                   <span className="w-2 h-2 bg-cyan-500 rounded-full"></span>
                   Grangemouth, Scotland
                 </span>
@@ -234,15 +235,16 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-white">
+      {/* What I Do Section - Light Grey */}
+      <section className="py-12 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-10"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">What I Do</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-3">What I Do</h2>
             <p className="text-xl text-gray-600">Three core specializations driving measurable results</p>
           </motion.div>
 
@@ -252,21 +254,18 @@ export default function Home() {
                 icon: '🏥',
                 title: 'Healthcare AI',
                 description: 'Building predictive models for NHS wait times, patient diagnostics, and clinical decision support systems.',
-                color: 'blue',
                 stats: '85%+ Accuracy',
               },
               {
                 icon: '📊',
                 title: 'Business Intelligence',
                 description: 'Designing executive dashboards and automated reports that transform raw data into strategic insights.',
-                color: 'purple',
                 stats: '40% Time Saved',
               },
               {
                 icon: '⚙️',
                 title: 'Analytics Engineering',
                 description: 'Creating scalable data pipelines and ETL systems that power enterprise analytics at scale.',
-                color: 'teal',
                 stats: '10M+ Records/Day',
               },
             ].map((service, index) => (
@@ -293,7 +292,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-gradient-to-br from-teal-50 to-blue-50">
+      {/* Stats Section - White */}
+      <section className="py-12 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
@@ -309,7 +309,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ scale: 1.05 }}
-                className="bg-white rounded-xl p-6 shadow-lg"
+                className="bg-gray-50 rounded-xl p-6 shadow-md border border-gray-100"
               >
                 <p className="text-5xl font-bold text-teal-600 mb-2">
                   {stat.special || <AnimatedCounter target={stat.value} suffix={stat.suffix} />}
@@ -321,15 +321,16 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 px-4 bg-white">
+      {/* Portfolio Section - Light Grey */}
+      <section className="py-12 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-10"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Featured Projects</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-3">Featured Projects</h2>
             <p className="text-xl text-gray-600">Real-world solutions delivering measurable impact</p>
           </motion.div>
 
@@ -383,7 +384,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 px-4 bg-gradient-to-br from-teal-600 to-blue-600 text-white">
+      {/* CTA Section - Teal Gradient */}
+      <section className="py-16 px-4 bg-gradient-to-br from-teal-600 to-blue-600 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -412,7 +414,8 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="bg-gray-900 text-white py-12 px-4">
+      {/* Footer - Dark Grey */}
+      <footer className="bg-gray-900 text-white py-10 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div>
@@ -444,7 +447,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
+          <div className="border-t border-gray-800 pt-6 text-center text-gray-400 text-sm">
             <p>© 2025 Ayoolumi Melehon | Grangemouth, Scotland | Built with Next.js & Tailwind CSS</p>
           </div>
         </div>
