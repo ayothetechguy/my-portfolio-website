@@ -114,11 +114,11 @@ export default function Home() {
   const heroScale = useTransform(scrollYProgress, [0, 0.3], [1, 0.95]);
   
   const backgroundImages = [
-    '/1.jpg',
-    '/11.jpg',
-    '/111.jpg',
-    '/1111.jpg',
-    '/11111.jpg'
+    '/Head.jpg',
+    '/Head.jpg',
+    '/Head.jpg',
+    '/Head.jpg',
+    '/Head.jpg'
   ];
 
   useEffect(() => {
@@ -129,7 +129,7 @@ export default function Home() {
     }, 30000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [backgroundImages.length]);
 
   return (
     <div className="min-h-screen bg-white">
@@ -142,7 +142,7 @@ export default function Home() {
       {/* DARK HERO SECTION */}
       <div className="relative bg-slate-950 overflow-hidden">
         {/* Background Images */}
-        <div className="fixed inset-0 z-0">
+        <div className="absolute inset-0 z-0">
           {backgroundImages.map((image, index) => (
             <motion.div
               key={index}
@@ -255,7 +255,7 @@ export default function Home() {
             </div>
           </motion.nav>
 
-          {/* Hero Section - Split Screen */}
+          {/* Hero Section */}
           <motion.section 
             style={{ opacity: heroOpacity, scale: heroScale }}
             className="relative flex items-center justify-center min-h-screen pt-20 px-4"
@@ -266,7 +266,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeOut" }}
               >
-                {/* "Available for Opportunities" Badge */}
+                {/* Badge */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -278,9 +278,9 @@ export default function Home() {
                   </div>
                 </motion.div>
 
-                {/* Split Screen Layout */}
+                {/* Split Screen */}
                 <div className="grid md:grid-cols-2 gap-8 items-center mb-10">
-                  {/* LEFT SIDE - Large Number Statement */}
+                  {/* LEFT */}
                   <motion.div
                     initial={{ opacity: 0, x: -50 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -290,10 +290,7 @@ export default function Home() {
                     <div className="relative inline-block">
                       <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 rounded-3xl blur-3xl opacity-30 animate-pulse" />
                       
-                      <motion.div
-                        whileHover={{ scale: 1.05 }}
-                        className="relative"
-                      >
+                      <motion.div whileHover={{ scale: 1.05 }} className="relative">
                         <h2 className="text-8xl sm:text-9xl lg:text-[12rem] font-black leading-none mb-2">
                           <span className="bg-gradient-to-br from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
                             03
@@ -306,7 +303,7 @@ export default function Home() {
                     </div>
                   </motion.div>
 
-                  {/* RIGHT SIDE - List of Specialties */}
+                  {/* RIGHT */}
                   <motion.div
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -440,7 +437,7 @@ export default function Home() {
             <ScrollIndicator />
           </motion.section>
 
-          {/* Animated Stats - Dark Section */}
+          {/* Stats Section */}
           <section className="py-20 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-cyan-600/20" />
             <div className="absolute inset-0 backdrop-blur-sm" />
@@ -449,10 +446,10 @@ export default function Home() {
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                 {[
-                  { value: 8, suffix: '+', label: 'Years Experience', color: 'blue' },
-                  { value: 17, suffix: '+', label: 'Portfolio Projects', color: 'purple' },
-                  { value: 0, suffix: '', label: 'MSc AI - 2025', color: 'cyan', special: 'MSc AI' },
-                  { value: 0, suffix: '', label: 'Based in Scotland', color: 'pink', special: 'Scotland' },
+                  { value: 8, suffix: '+', label: 'Years Experience' },
+                  { value: 17, suffix: '+', label: 'Portfolio Projects' },
+                  { value: 0, suffix: '', label: 'MSc AI - 2025', special: 'MSc AI' },
+                  { value: 0, suffix: '', label: 'Based in Scotland', special: 'Scotland' },
                 ].map((stat, index) => (
                   <motion.div
                     key={index}
@@ -463,16 +460,12 @@ export default function Home() {
                     whileHover={{ scale: 1.1 }}
                     className="text-center cursor-default group"
                   >
-                    <div className="relative inline-block">
-                      <div className={`absolute -inset-4 bg-gradient-to-r from-${stat.color}-500 to-${stat.color}-600 rounded-full blur-2xl opacity-0 group-hover:opacity-40 transition duration-500`} />
-                      
-                      <motion.div 
-                        className={`relative text-4xl sm:text-5xl font-bold mb-2 bg-gradient-to-r from-${stat.color}-400 to-${stat.color}-200 bg-clip-text text-transparent`}
-                        whileHover={{ scale: 1.1 }}
-                      >
-                        {stat.special || <AnimatedCounter target={stat.value} suffix={stat.suffix} />}
-                      </motion.div>
-                    </div>
+                    <motion.div 
+                      className="relative text-4xl sm:text-5xl font-bold mb-2 text-blue-400"
+                      whileHover={{ scale: 1.1 }}
+                    >
+                      {stat.special || <AnimatedCounter target={stat.value} suffix={stat.suffix} />}
+                    </motion.div>
                     <div className="text-gray-300 font-medium text-sm sm:text-base">{stat.label}</div>
                   </motion.div>
                 ))}
@@ -482,9 +475,9 @@ export default function Home() {
         </div>
       </div>
 
-      {/* LIGHT SECTIONS START HERE */}
+      {/* LIGHT SECTIONS */}
 
-      {/* Three Specialties Detail - Light Background */}
+      {/* Specialties Detail */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -507,7 +500,6 @@ export default function Home() {
                 ),
                 title: 'Healthcare AI',
                 description: 'I build predictive models for healthcare systems, from NHS wait-time predictions to diagnostic support tools.',
-                color: 'blue',
                 bgGradient: 'from-blue-50 to-white',
                 borderColor: 'border-blue-200',
                 hoverBorder: 'hover:border-blue-300',
@@ -522,7 +514,6 @@ export default function Home() {
                 ),
                 title: 'Business Intelligence',
                 description: 'I design dashboards and reports that transform raw data into actionable insights for decision-makers.',
-                color: 'teal',
                 bgGradient: 'from-teal-50 to-white',
                 borderColor: 'border-teal-200',
                 hoverBorder: 'hover:border-teal-300',
@@ -538,7 +529,6 @@ export default function Home() {
                 ),
                 title: 'Analytics Engineering',
                 description: 'I build data pipelines and automation systems that scale from small teams to enterprise operations.',
-                color: 'cyan',
                 bgGradient: 'from-cyan-50 to-white',
                 borderColor: 'border-cyan-200',
                 hoverBorder: 'hover:border-cyan-300',
@@ -566,7 +556,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Portfolio Grid - Light Background */}
+      {/* Portfolio Grid */}
       <section className="py-20 px-4 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -631,9 +621,9 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Let's Work Together</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Let&apos;s Work Together</h2>
             <p className="text-xl mb-8 text-teal-100">
-              Looking for a data analyst who can deliver actionable insights? Let's discuss your project.
+              Looking for a data analyst who can deliver actionable insights? Let&apos;s discuss your project.
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link 
