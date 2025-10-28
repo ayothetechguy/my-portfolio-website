@@ -650,7 +650,7 @@ export default function Home() {
                   { href: 'https://www.linkedin.com/in/ayoolumi-melehon-b63237179/', label: 'LinkedIn' },
                   { href: 'https://github.com/ayothetechguy', label: 'GitHub' },
                 ].map((social) => (
-                  
+                  <a
                     key={social.label}
                     href={social.href}
                     target="_blank"
