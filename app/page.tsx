@@ -353,11 +353,29 @@ export default function Home() {
                   whileHover={{ y: -8, scale: 1.02 }}
                   className="group bg-white rounded-xl border-2 border-gray-200 hover:border-teal-300 shadow-lg hover:shadow-2xl transition-all cursor-pointer overflow-hidden h-full"
                 >
-                  <div className="aspect-video bg-gradient-to-br from-teal-100 to-blue-100 flex items-center justify-center">
-                    <svg className="w-16 h-16 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                    </svg>
-                  </div>
+                  <div className="aspect-video bg-gradient-to-br from-teal-100 to-blue-100 overflow-hidden">
+                  {project.id === 'nhs-ae-wait-time-prediction' && (
+                    <img 
+                      src="/projects/nhs-ae-prediction-1.png"
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
+                  )}
+                  {project.id === 'pneumonia-detection-system' && (
+                    <img 
+                      src="/projects/pneumonia-detection-1.png"
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
+                  )}
+                  {!project.id || (project.id !== 'nhs-ae-wait-time-prediction' && project.id !== 'pneumonia-detection-system') && (
+                    <div className="flex items-center justify-center h-full">
+                      <svg className="w-16 h-16 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                      </svg>
+                    </div>
+                  )}
+                </div>
                   <div className="p-6">
                     <p className="text-sm text-teal-600 font-semibold mb-2">{project.category}</p>
                     <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-teal-600 transition">
