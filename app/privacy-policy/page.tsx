@@ -228,7 +228,7 @@ export default function PrivacyPolicy() {
                 </p>
                 <div className="mt-4 bg-white/10 rounded-lg p-4">
                   <p><strong>Email:</strong> <a href="mailto:info@ayofemimelehon.info" className="text-blue-400 hover:text-blue-300">info@ayofemimelehon.info</a></p>
-                  <p><strong>Location:</strong> Edinburgh, Scotland, UK</p>
+                  <p><strong>Location:</strong> Grangemouth, Scotland, UK</p>
                 </div>
               </section>
             </div>
@@ -244,7 +244,7 @@ export default function PrivacyPolicy() {
         {/* Footer */}
         <footer className="bg-black/50 backdrop-blur-md border-t border-white/10 py-8">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p className="text-gray-300">© 2025 Ayoolumi Melehon | Edinburgh, Scotland</p>
+            <p className="text-gray-300">© 2025 Ayoolumi Melehon | Grangemouth, Scotland</p>
           </div>
         </footer>
       </div>

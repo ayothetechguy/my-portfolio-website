@@ -36,7 +36,7 @@ export default function Gallery() {
       type: 'image',
       category: 'Professional',
       title: 'Professional Headshot',
-      description: 'Edinburgh, Scotland',
+      description: 'Grangemouth, Scotland',
       url: '/gallery/headshot.jpg',
       thumbnail: '/gallery/headshot-thumb.jpg'
     },
@@ -288,7 +288,7 @@ export default function Gallery() {
     
     {/* Copyright */}
     <div className="text-center">
-      <p className="text-gray-300">© 2025 Ayoolumi Melehon | Edinburgh, Scotland</p>
+      <p className="text-gray-300">© 2025 Ayoolumi Melehon | Grangemouth, Scotland</p>
     </div>
   </div>
 </footer>

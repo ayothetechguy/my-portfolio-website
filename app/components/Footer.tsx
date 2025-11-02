@@ -73,7 +73,7 @@ export default function Footer() {
               </li>
             </ul>
             <p className="text-gray-400 text-sm mt-4">
-              📍 Edinburgh, Scotland
+              📍 Grangemouth, Scotland
             </p>
           </div>
         </div>

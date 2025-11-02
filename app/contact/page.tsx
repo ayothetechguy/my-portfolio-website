@@ -243,7 +243,7 @@ export default function Contact() {
                     { icon: "💼", title: "LinkedIn", value: "linkedin.com/in/ayoolumi-melehon", link: "https://www.linkedin.com/in/ayoolumi-melehon-b63237179/" },
                     { icon: "🐙", title: "GitHub", value: "github.com/ayothetechguy", link: "https://github.com/ayothetechguy" },
                     { icon: "🎥", title: "YouTube", value: "youtube.com/@ayoolumi_oluwafemi", link: "https://www.youtube.com/@ayoolumi_oluwafemi" },
-                    { icon: "📍", title: "Location", value: "Edinburgh, Scotland, UK\nAvailable: On-site | Hybrid | Remote", link: null },
+                    { icon: "📍", title: "Location", value: "Grangemouth, Scotland, UK\nAvailable: On-site | Hybrid | Remote", link: null },
                     { icon: "⏰", title: "Response Time", value: "Within 24 hours on business days", link: null }
                     
                   ].map((item, index) => (
@@ -374,7 +374,7 @@ export default function Contact() {
     
     {/* Copyright */}
     <div className="text-center">
-      <p className="text-gray-300">© 2025 Ayoolumi Melehon | Edinburgh, Scotland</p>
+      <p className="text-gray-300">© 2025 Ayoolumi Melehon | Grangemouth, Scotland</p>
     </div>
   </div>
 </footer>

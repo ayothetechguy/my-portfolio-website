@@ -392,7 +392,7 @@ export default function Services() {
             </div>
           </div>
           <div className="border-t border-gray-800 pt-6 text-center text-gray-400 text-sm">
-            <p>© 2025 Ayoolumi Melehon | Edinburgh, Scotland | Built with Next.js & Tailwind CSS</p>
+            <p>© 2025 Ayoolumi Melehon | Grangemouth, Scotland | Built with Next.js & Tailwind CSS</p>
           </div>
         </div>
       </footer>

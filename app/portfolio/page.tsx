@@ -207,7 +207,7 @@ export default function Portfolio() {
             </div>
             
             <div className="text-center">
-              <p className="text-gray-300">© 2025 Ayoolumi Melehon | Edinburgh, Scotland</p>
+              <p className="text-gray-300">© 2025 Ayoolumi Melehon | Grangemouth, Scotland</p>
             </div>
           </div>
         </footer>

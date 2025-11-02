@@ -134,7 +134,7 @@ export default function About() {
                 specializing in end-to-end analytics solutions that bridge technical implementation and business value.
               </p>
               <p>
-                Currently based in Edinburgh, Scotland, I transform complex data into actionable insights using modern 
+                Currently based in Grangemouth, Scotland, I transform complex data into actionable insights using modern 
                 analytics techniques, machine learning models, and intelligent automation. My work spans product analytics, 
                 workforce intelligence, and applied ML research.
               </p>
@@ -386,7 +386,7 @@ export default function About() {
             </div>
           </div>
           <div className="border-t border-gray-800 pt-6 text-center text-gray-400 text-sm">
-            <p>© 2025 Ayoolumi Melehon | Edinburgh, Scotland | Built with Next.js & Tailwind CSS</p>
+            <p>© 2025 Ayoolumi Melehon | Grangemouth, Scotland | Built with Next.js & Tailwind CSS</p>
           </div>
         </div>
       </footer>
