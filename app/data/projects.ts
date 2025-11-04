@@ -19,6 +19,51 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: 'fall-risk-assessment',
+    title: 'Fall Risk Assessment System',
+    category: 'ML & AI',
+    shortDescription: 'AI-powered elderly care system predicting fall risk in next 6 months using machine learning (85.6% AUC). Interactive dashboard with real-time assessments and personalized recommendations.',
+    problem: 'Falls are the leading cause of injury-related deaths among elderly people (65+). Healthcare providers struggle to identify high-risk patients early, and manual risk assessments are time-consuming and inconsistent.',
+    solution: 'Developed a machine learning system using Logistic Regression analyzing 20+ clinical factors (mobility, medications, fall history, environmental hazards) to predict fall probability. Built premium interactive Streamlit dashboard with real-time risk assessment, animated visualizations, and evidence-based intervention recommendations.',
+    impact: 'Enables preventive care targeting with 79.5% accuracy. Early identification can prevent falls costing $50,000+ per incident. System provides immediate risk stratification (Low/Medium/High) with personalized action plans and timelines.',
+    techStack: ['Python', 'Streamlit', 'Scikit-learn', 'Logistic Regression', 'Plotly', 'Pandas', 'NumPy', 'Machine Learning', 'Healthcare Analytics'],
+    githubUrl: 'https://github.com/ayothetechguy/fall-risk-assessment',
+    liveDemoUrl: 'https://fall-risk-assessment-lnvjtegpsewdkd5khtsfmk.streamlit.app/',
+    videoUrl: '',
+    screenshots: [
+      '/projects/fall-risk-1.png',
+      '/projects/fall-risk-2.png',
+      '/projects/fall-risk-3.png',
+      '/projects/fall-risk-4.png'
+    ],
+    features: [
+      'Logistic Regression model with 79.5% accuracy and 85.6% AUC score',
+      '80.8% sensitivity (catches 81% of people who will fall)',
+      '77.1% specificity (correctly identifies non-fallers)',
+      'Real-time fall risk prediction analyzing 20+ clinical factors',
+      'Interactive patient assessment with live feedback and warnings',
+      'Animated risk visualization with gauge charts and progress bars',
+      'Personalized intervention recommendations with detailed timelines',
+      'Risk factor importance analysis and contribution breakdown',
+      'Interactive risk simulator for testing "what-if" scenarios',
+      'Population analytics with charts showing risk distributions',
+      'Batch processing capability for multiple patients',
+      'Downloadable CSV assessment reports with full patient data',
+      'Premium UI with animations, gradients, and professional medical design',
+      'Mobile-responsive dashboard with sidebar statistics'
+    ],
+    learnings: [
+      'Synthetic healthcare data must have realistic correlations between risk factors for accurate model training',
+      'Logistic Regression chosen over Random Forest for better interpretability in clinical settings',
+      'Feature importance visualization helps clinicians understand and trust AI predictions',
+      'Interactive dashboards with live feedback improve user experience and data quality',
+      'Healthcare ML applications require clear communication of uncertainty and confidence levels',
+      'Model explainability is critical for clinical adoption and stakeholder buy-in',
+      'Premium UI/UX with animations significantly increases user engagement and satisfaction'
+    ],
+    completionDate: '2025'
+  },
+  {
     id: 'user-activation-dashboard',
     title: 'User Activation & Retention Dashboard',
     category: 'Product Analytics',
