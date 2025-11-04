@@ -368,7 +368,14 @@ export default function Home() {
                       className="w-full h-full object-cover"
                     />
                   )}
-                  {!project.id || (project.id !== 'nhs-ae-wait-time-prediction' && project.id !== 'pneumonia-detection-system') && (
+                  {project.id === 'fall-risk-assessment' && (
+                    <img 
+                      src="/projects/fall-risk-1.png"
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
+                  )}
+                  {!project.id || (project.id !== 'nhs-ae-wait-time-prediction' && project.id !== 'pneumonia-detection-system' && project.id !== 'fall-risk-assessment') && (
                     <div className="flex items-center justify-center h-full">
                       <svg className="w-16 h-16 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
