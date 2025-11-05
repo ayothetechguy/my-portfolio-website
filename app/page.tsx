@@ -340,7 +340,7 @@ export default function Home() {
               { title: 'Fall Risk Assessment System', category: 'ML & AI', impact: '79.5% accuracy, 0.856 AUC', id: 'fall-risk-assessment' },
               { title: 'Pneumonia Detection System', category: 'Medical AI', impact: '92% diagnostic accuracy', id: 'pneumonia-detection-system' },
               { title: 'Executive BI Dashboard', category: 'Business Intelligence', impact: 'Real-time insights for C-suite', id: null },
-              { title: 'Workforce Analytics Platform', category: 'HR Analytics', impact: '20% improvement in hiring', id: 'skills-gap-mapper' },
+              { title: 'Social Isolation Detection', category: 'Healthcare AI', impact: 'Automated elderly care monitoring', id: 'social-isolation-detection' },
               { title: 'ETL Pipeline Automation', category: 'Data Engineering', impact: '10M records processed daily', id: null },
             ].map((project, index) => {
               const CardContent = (
