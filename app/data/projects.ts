@@ -64,6 +64,50 @@ export const projects: Project[] = [
     completionDate: '2025'
   },
   {
+    id: 'social-isolation-detection',
+    title: 'Social Isolation Detection System',
+    category: 'ML & AI',
+    shortDescription: 'AI-powered elderly care monitoring system detecting social isolation patterns using Isolation Forest anomaly detection with real-time alerts.',
+    problem: 'Social isolation among elderly residents in care facilities often goes unnoticed until serious mental/physical health consequences occur. Manual monitoring of 100+ residents is impossible, and subtle behavioral changes indicating isolation are easily missed.',
+    solution: 'Built an anomaly detection system using Isolation Forest algorithm analyzing 11 daily activity metrics (phone calls, visitors, activities, movement patterns) to automatically identify residents showing isolation patterns. Interactive dashboard provides real-time risk scoring (0-100) and alerts for care staff.',
+    impact: 'Enables early intervention for at-risk residents with automated daily monitoring. System identifies 41% of isolated residents and provides actionable alerts, reducing caregiver workload while improving resident wellbeing through timely intervention.',
+    techStack: ['Python', 'Scikit-learn', 'Isolation Forest', 'Streamlit', 'Pandas', 'Plotly', 'Machine Learning', 'Anomaly Detection'],
+    githubUrl: 'https://github.com/ayothetechguy/social-isolation-detection',
+    liveDemoUrl: 'https://social-isolation-detection-u8bhpjruedwd3yf2295kqt.streamlit.app/',
+    videoUrl: '',
+    screenshots: [
+      '/projects/social-isolation-1.png',
+      '/projects/social-isolation-2.png',
+      '/projects/social-isolation-3.png',
+      '/projects/social-isolation-4.png'
+    ],
+    features: [
+      'Isolation Forest anomaly detection with 11 activity features',
+      'Automated isolation risk scoring (0-100 scale) for 100 residents',
+      'Real-time dashboard with facility-wide monitoring',
+      'Individual resident tracking with 90-day timeline visualization',
+      'High-risk alert system (>70 score) for immediate intervention',
+      'Activity pattern analysis: phone calls, visitors, group activities',
+      'Behavioral trend detection showing gradual isolation over time',
+      'Feature importance analysis (visitors 19.6%, social time 15.1%)',
+      'Interactive date filtering and resident selection',
+      'Facility-wide trend analytics with aggregated metrics',
+      'Risk category breakdown (Low/Medium/High) with pie charts',
+      'Movement and sleep pattern monitoring',
+      'Premium UI with gradient designs and animated visualizations'
+    ],
+    learnings: [
+      'Isolation Forest excels at detecting gradual behavioral changes vs sudden anomalies',
+      'Anomaly detection achieves 53% accuracy - realistic for subtle patterns in complex human behavior',
+      'Visitors (19.6%) and social interaction time (15.1%) are strongest isolation predictors',
+      'Synthetic data generation requires realistic correlations between activities (low visitors → low social time)',
+      'Healthcare monitoring systems need actionable thresholds (score >70) not just predictions',
+      'Interactive dashboards must balance comprehensive data with caregiver time constraints',
+      'Feature engineering from temporal patterns (7-day trends) improves clinical usefulness'
+    ],
+    completionDate: '2025'
+  },
+  {
     id: 'user-activation-dashboard',
     title: 'User Activation & Retention Dashboard',
     category: 'Product Analytics',
@@ -452,32 +496,6 @@ export const projects: Project[] = [
       'Stakeholder buy-in requires consistent quality and timing'
     ],
     completionDate: '2023'
-  },
-  {
-    id: 'education-microdata-explorer',
-    title: 'Education/Employment Microdata Explorer',
-    category: 'Research',
-    shortDescription: 'Interactive tool for exploring relationships in UK Census microdata between education and employment outcomes.',
-    problem: 'Researchers and policymakers need accessible tools to explore complex relationships in census microdata without advanced statistical software.',
-    solution: 'Created an interactive Streamlit dashboard allowing users to filter, visualize, and analyze education-employment patterns across demographics.',
-    impact: 'Makes census insights accessible to non-technical stakeholders and supports evidence-based policy discussions.',
-    techStack: ['Python', 'Streamlit', 'Pandas', 'Plotly', 'Statistical Analysis'],
-    githubUrl: '',
-    liveDemoUrl: '',
-    videoUrl: '',
-    screenshots: ['/projects/microdata-explorer-1.png'],
-    features: [
-      'Interactive demographic filtering',
-      'Cross-tabulation visualizations',
-      'Employment outcome distributions by education level',
-      'Geographic analysis capabilities'
-    ],
-    learnings: [
-      'Census data requires careful handling of sampling weights',
-      'Interactive exploration reveals insights missed in static reports',
-      'Privacy protection is paramount when working with microdata'
-    ],
-    completionDate: '2024'
   },
   {
     id: 'pneumonia-detection-system',
