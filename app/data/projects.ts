@@ -108,30 +108,49 @@ export const projects: Project[] = [
     completionDate: '2025'
   },
   {
-    id: 'user-activation-dashboard',
-    title: 'User Activation & Retention Dashboard',
-    category: 'Product Analytics',
-    shortDescription: 'Interactive dashboard tracking user activation metrics, cohort retention, and feature adoption patterns for SaaS products.',
-    problem: 'Product teams struggle to understand which user behaviors lead to activation and long-term retention, making it difficult to optimize onboarding flows.',
-    solution: 'Built a comprehensive Streamlit dashboard that visualizes activation funnels, cohort retention curves, and feature adoption heatmaps using synthetic SaaS data.',
-    impact: 'Enables product managers to identify drop-off points in user journeys and make data-driven decisions about feature prioritization.',
-    techStack: ['Python', 'Streamlit', 'Pandas', 'Altair', 'SQL'],
-    githubUrl: 'https://github.com/ayothetechguy/activation-dashboard',
-    liveDemoUrl: 'https://activation-dashboard.streamlit.app',
+    id: 'executive-sales-dashboard',
+    title: 'Executive Sales Dashboard',
+    category: 'Operational Analytics',
+    shortDescription: 'Interactive business intelligence dashboard providing C-suite executives with real-time sales insights, pipeline analytics, and team performance metrics.',
+    problem: 'Executive teams lack unified visibility into sales performance across regions, products, and teams. Manual reporting is time-consuming and provides outdated insights, making strategic decision-making difficult.',
+    solution: 'Built an interactive Streamlit dashboard with real-time KPI tracking, revenue trend analysis, pipeline health monitoring, and team performance leaderboards. Includes dynamic filtering by year, quarter, month, region, category, and sales rep with YoY comparison capabilities.',
+    impact: 'Enables data-driven executive decision-making with instant access to key metrics. Automated reporting saves 15+ hours weekly and provides strategic insights for resource allocation and performance management.',
+    techStack: ['Python', 'Streamlit', 'Plotly', 'Pandas', 'Business Intelligence', 'Data Visualization'],
+    githubUrl: 'https://github.com/ayothetechguy/executive-sales-dashboard',
+    liveDemoUrl: 'https://executive-sales-dashboard-9ekb6dle3k5apgaf5d6puu.streamlit.app/',
     videoUrl: '',
-    screenshots: ['/projects/activation-dashboard-1.png', '/projects/activation-dashboard-2.png'],
+    screenshots: [
+      '/projects/executive-bi-1.png',
+      '/projects/executive-bi-2.png',
+      '/projects/executive-bi-3.png',
+      '/projects/executive-bi-4.png'
+    ],
     features: [
-      'Activation funnel analysis with conversion rates',
-      'Cohort retention curves with time-based segmentation',
-      'Feature adoption heatmaps',
-      'Interactive filtering by user segment'
+      'Real-time KPI dashboard with revenue, pipeline, win rate, and average deal size',
+      'Year-over-year revenue comparison with growth percentage tracking',
+      'Interactive filtering by year, quarter, month, region, category, and sales rep',
+      'Revenue trend visualization with monthly time series analysis',
+      'Sales pipeline funnel showing stage-by-stage conversion',
+      'Regional performance breakdown with horizontal bar charts',
+      'Team performance leaderboard with revenue and deal count metrics',
+      'Product performance analysis with category mix visualization',
+      'Quarterly revenue tracking with comparative bar charts',
+      'Top 8 sales performers ranked by total revenue',
+      'Recent closed deals table with export functionality',
+      'CSV data export for filtered datasets',
+      'Premium gradient UI with color-coded metrics',
+      'Multi-tab interface for organized insights'
     ],
     learnings: [
-      'Cohort analysis requires careful date handling and SQL window functions',
-      'Visualization choice dramatically impacts stakeholder understanding',
-      'Synthetic data generation must reflect realistic user behavior patterns'
+      'Executive dashboards require clear hierarchy with KPIs prominently displayed at top',
+      'Color gradients and visual hierarchy guide attention to critical metrics',
+      'Interactive filters enable self-service analytics for different stakeholder needs',
+      'Tabbed interface organizes complex data without overwhelming users',
+      'YoY comparisons provide context that raw numbers lack',
+      'Export functionality is essential for executives who want deeper analysis',
+      'Professional UI design increases dashboard adoption and credibility with C-suite'
     ],
-    completionDate: '2024'
+    completionDate: '2025'
   },
   {
     id: 'skills-gap-mapper',
