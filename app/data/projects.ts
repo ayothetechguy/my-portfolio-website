@@ -153,30 +153,46 @@ export const projects: Project[] = [
     completionDate: '2025'
   },
   {
-    id: 'skills-gap-mapper',
-    title: 'Digital Capability Gap Mapper',
-    category: 'Workforce Analytics',
-    shortDescription: 'ML-powered system identifying skills gaps across organizational teams with predictive capability scoring.',
-    problem: 'Organizations lack visibility into workforce digital capabilities, making it difficult to plan training programs and identify succession risks.',
-    solution: 'Developed a classification model using survey data to predict capability levels, coupled with an interactive dashboard showing skills heatmaps and gap analysis.',
-    impact: 'Helps L&D teams prioritize training investments and identify at-risk teams with low digital maturity.',
-    techStack: ['Python', 'Scikit-learn', 'Streamlit', 'Pandas', 'Random Forest'],
-    githubUrl: 'https://github.com/ayothetechguy/skills-gap-mapper',
+    id: 'nhs-data-integration-pipeline',
+    title: 'NHS Data Integration Pipeline',
+    category: 'Data Engineering',
+    shortDescription: 'Multi-source healthcare data integration system with ETL pipeline architecture, star schema modeling, and NHS data standards compliance (620k records, 207MB).',
+    problem: 'NHS Trusts have patient data scattered across multiple isolated systems (PAS, EHR, LIMS, Appointments) that do not communicate. Clinicians lack complete patient journey visibility, and analysts cannot perform system-wide analysis for service improvement.',
+    solution: 'Designed and built comprehensive ETL pipeline integrating 4 NHS source systems into unified star schema data warehouse. System handles multi-format data (CSV, JSON), validates NHS-specific standards (Modulus 11 check digits, ICD-10 codes), and implements GDPR-compliant architecture with data quality framework.',
+    impact: 'Demonstrates capabilities directly applicable to analyzing Scotland\'s Unscheduled Care Data Mart (UCD) for patient pathway optimization. Architecture supports 620,320 records with <2hr processing time, 99.5% data quality target, and complete audit trail for healthcare analytics and research.',
+    techStack: ['Python', 'Pandas', 'DuckDB', 'SQL', 'ETL', 'Data Modeling', 'Star Schema', 'NHS Standards', 'Data Quality', 'GDPR', 'Healthcare Analytics'],
+    githubUrl: 'https://github.com/ayothetechguy/nhs-data-integration-pipeline',
     liveDemoUrl: '',
     videoUrl: '',
-    screenshots: ['/projects/skills-gap-1.png'],
+    screenshots: [],
     features: [
-      'Random Forest classification for capability prediction',
-      'Team-level skills heatmaps',
-      'Gap prioritization matrix',
-      'Training ROI estimation'
+      'Multi-source data extraction from 4 NHS clinical systems',
+      'Star schema dimensional warehouse with fact and dimension tables',
+      'Valid NHS number generation using Modulus 11 algorithm',
+      'ICD-10 diagnosis coding and clinical terminology standards',
+      'Data quality validation framework with healthcare-specific rules',
+      'GDPR-compliant design with pseudonymization and audit trails',
+      'Synthetic data generation: 50k patients, 100k encounters, 350k lab results, 120k appointments',
+      'Realistic healthcare data patterns with intentional quality issues',
+      'Five-layer architecture: Source → Staging → Processing → Warehouse → Presentation',
+      'Handles multiple data formats (CSV for structured, JSON for clinical notes)',
+      'Scottish healthcare demographics and geographic data',
+      'Performance targets: <2hr processing, 10M+ records daily capacity',
+      'Complete documentation of data dictionary and quality rules',
+      'ETL pipeline design ready for Apache Airflow orchestration'
     ],
     learnings: [
-      'Survey data requires extensive cleaning and categorical encoding',
-      'Model interpretability is critical for HR stakeholder buy-in',
-      'Capability frameworks must align with organizational taxonomy'
+      'Healthcare data integration requires deep understanding of clinical workflows and terminology standards',
+      'Star schema dimensional modeling dramatically simplifies complex patient pathway analytics queries',
+      'NHS number validation with Modulus 11 algorithm essential for data quality in UK healthcare systems',
+      'Synthetic data generation must preserve realistic correlations between clinical variables',
+      'GDPR compliance requires pseudonymization strategy, not just encryption',
+      'Data quality framework must balance completeness checks with realistic missing data patterns',
+      'Multi-format data handling (CSV, JSON) required for different NHS system characteristics',
+      'Five-layer architecture provides clear separation of concerns for maintainability and testing',
+      'Documentation of data lineage and transformation logic critical for healthcare audit requirements'
     ],
-    completionDate: '2024'
+    completionDate: '2025'
   },
   {
     id: 'anomaly-detection-system',
@@ -553,17 +569,14 @@ export const projects: Project[] = [
   }
 ];
 
-// Helper function to get projects by category
 export function getProjectsByCategory(category: Project['category']) {
   return projects.filter(project => project.category === category);
 }
 
-// Helper function to get project by ID
 export function getProjectById(id: string) {
   return projects.find(project => project.id === id);
 }
 
-// Get all unique categories
 export function getCategories() {
   return Array.from(new Set(projects.map(p => p.category)));
 }
