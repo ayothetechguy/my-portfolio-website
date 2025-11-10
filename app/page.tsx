@@ -341,7 +341,7 @@ export default function Home() {
               { title: 'Pneumonia Detection System', category: 'Medical AI', impact: '92% diagnostic accuracy', id: 'pneumonia-detection-system' },
               { title: 'Executive Sales Dashboard', category: 'Operational Analytics', impact: 'Interactive C-suite BI platform', id: 'executive-sales-dashboard' },
               { title: 'Social Isolation Detection', category: 'Healthcare AI', impact: 'Automated elderly care monitoring', id: 'social-isolation-detection' },
-              { title: 'ETL Pipeline Automation', category: 'Data Engineering', impact: '10M records processed daily', id: null },
+              { title: 'Mental Health Demand Forecasting', category: 'ML & AI', impact: 'ARIMA time series forecasting', id: 'mental-health-demand-forecasting' },
             ].map((project, index) => {
               const CardContent = (
                 <motion.div
@@ -389,7 +389,14 @@ export default function Home() {
                       className="w-full h-full object-cover"
                     />
                   )}
-                  {!project.id || (project.id !== 'nhs-ae-wait-time-prediction' && project.id !== 'pneumonia-detection-system' && project.id !== 'fall-risk-assessment' && project.id !== 'social-isolation-detection' && project.id !== 'executive-sales-dashboard') && (
+                  {project.id === 'mental-health-demand-forecasting' && (
+                    <img 
+                      src="/projects/mental-health-1.png"
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
+                  )}
+                  {!project.id || (project.id !== 'nhs-ae-wait-time-prediction' && project.id !== 'pneumonia-detection-system' && project.id !== 'fall-risk-assessment' && project.id !== 'social-isolation-detection' && project.id !== 'executive-sales-dashboard' && project.id !== 'mental-health-demand-forecasting') && (
                     <div className="flex items-center justify-center h-full">
                       <svg className="w-16 h-16 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
