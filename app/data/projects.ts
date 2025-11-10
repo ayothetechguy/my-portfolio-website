@@ -19,6 +19,53 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: 'mental-health-demand-forecasting',
+    title: 'Mental Health Service Demand Forecasting',
+    category: 'ML & AI',
+    shortDescription: 'Time series forecasting system predicting mental health service demand across Scottish health boards using ARIMA modeling with interactive Streamlit dashboard.',
+    problem: 'Scottish health boards struggle to anticipate mental health service demand, leading to inadequate resource allocation, long wait times, and crisis-driven care. Traditional planning methods lack predictive capability for seasonal patterns and trend changes.',
+    solution: 'Developed ARIMA time series forecasting models analyzing 6 years of synthetic mental health presentation data (2019-2024) across 14 Scottish health boards. Built interactive Streamlit dashboard with multi-board comparison, seasonal decomposition, and demographic breakdowns enabling proactive capacity planning.',
+    impact: 'Enables evidence-based resource allocation with 3-6 month advance forecasting. System identifies seasonal peaks, board-specific trends, and demographic patterns, supporting strategic planning for mental health services across Scotland. Provides actionable insights for staffing, budgeting, and service expansion decisions.',
+    techStack: ['Python', 'Pandas', 'Statsmodels', 'ARIMA', 'Streamlit', 'Plotly', 'Time Series Forecasting', 'Healthcare Analytics'],
+    githubUrl: 'https://github.com/ayothetechguy/mental-health-demand-forecasting',
+    liveDemoUrl: 'https://mental-health-demand-forecasting-mypuyyylxp3fcubj8dddlb.streamlit.app',
+    videoUrl: '',
+    screenshots: [
+      '/projects/mental-health-1.png',
+      '/projects/mental-health-2.png',
+      '/projects/mental-health-3.png',
+      '/projects/mental-health-4.png'
+    ],
+    features: [
+      'ARIMA time series forecasting with automated parameter selection',
+      'Multi-health board comparison across 14 Scottish NHS boards',
+      'Seasonal decomposition showing trend, seasonality, and residuals',
+      'Interactive 3-6 month demand forecasts with confidence intervals',
+      'Demographic breakdown by age group and sex',
+      'COVID-19 impact analysis showing pandemic effects on presentations',
+      'Board-specific trend analysis identifying growth patterns',
+      'Historical data visualization with monthly aggregations',
+      'Year-over-year comparison charts',
+      'Interactive filtering by health board, time period, and demographics',
+      'Synthetic dataset generation with realistic healthcare patterns',
+      'Comprehensive data quality validation',
+      'Professional healthcare-themed UI with gradient designs',
+      'Export capabilities for forecast data and visualizations'
+    ],
+    learnings: [
+      'ARIMA models effectively capture seasonal patterns in healthcare demand data',
+      'Mental health service utilization shows strong seasonal variations requiring trend-seasonal decomposition',
+      'COVID-19 created structural breaks in historical patterns requiring careful model calibration',
+      'Synthetic data generation must preserve realistic correlations between demographics and service use',
+      'Health board-specific models perform better than single national model due to regional variation',
+      'Interactive dashboards enable stakeholders to explore forecasts across multiple dimensions',
+      'Time series forecasting provides actionable 3-6 month planning horizon for healthcare services',
+      'Statsmodels ARIMA implementation works well for univariate healthcare demand forecasting',
+      'Python 3.12/3.13 compatibility required careful dependency management for scipy and statsmodels'
+    ],
+    completionDate: '2025'
+  },
+  {
     id: 'fall-risk-assessment',
     title: 'Fall Risk Assessment System',
     category: 'ML & AI',
@@ -217,32 +264,6 @@ export const projects: Project[] = [
       'Isolation Forest works well for multivariate KPI monitoring',
       'Feature scaling is critical for anomaly detection accuracy',
       'False positive management requires domain-specific tuning'
-    ],
-    completionDate: '2024'
-  },
-  {
-    id: 'event-data-warehouse',
-    title: 'Mini Event Data Warehouse',
-    category: 'Data Engineering',
-    shortDescription: 'Star schema data warehouse built with dbt and DuckDB for efficient analytics on event-based data.',
-    problem: 'Raw event logs are difficult to query efficiently, and analysts struggle with complex joins for common analytics questions.',
-    solution: 'Designed and implemented a star schema warehouse using dbt for transformations and DuckDB as the analytics engine.',
-    impact: 'Query performance improved by 10x, and analysts can now self-serve analytics without data engineering support.',
-    techStack: ['dbt', 'DuckDB', 'SQL', 'Python'],
-    githubUrl: 'https://github.com/ayothetechguy/event-warehouse',
-    liveDemoUrl: '',
-    videoUrl: '',
-    screenshots: ['/projects/warehouse-schema.png'],
-    features: [
-      'Star schema design with fact and dimension tables',
-      'Incremental dbt models for efficient updates',
-      'Data quality tests and documentation',
-      'SQL-based analytics layer'
-    ],
-    learnings: [
-      'Star schema dramatically simplifies analytics queries',
-      'dbt testing framework catches data quality issues early',
-      'DuckDB is surprisingly fast for medium-scale analytics'
     ],
     completionDate: '2024'
   },
