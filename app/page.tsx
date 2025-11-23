@@ -153,7 +153,7 @@ export default function Home() {
                 transition={{ delay: 0.2 }}
                 className="inline-block px-4 py-2 bg-teal-100 text-teal-700 rounded-full text-sm font-semibold mb-6 border border-teal-200"
               >
-                ✨ Open to PhD Opportunities & Healthcare Data Roles
+                ✨ ✨ Open to Medical AI PhD Opportunities & Healthcare Data, Analytics, Technology Roles.
               </motion.div>
 
               <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight">
@@ -460,7 +460,7 @@ export default function Home() {
                 href="/portfolio"
                 className="px-8 py-4 bg-transparent text-white border-2 border-white rounded-lg font-semibold hover:bg-white/10 transition"
               >
-                Explore My Research
+                Explore My Portfolio
               </Link>
             </div>
           </motion.div>
