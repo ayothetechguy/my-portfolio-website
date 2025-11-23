@@ -77,7 +77,7 @@ export default function Home() {
             </Link>
             
             <div className="hidden md:flex items-center space-x-8">
-              {['About', 'Portfolio', 'Services', 'Experience', 'Contact'].map((item) => (
+              {['About', 'Portfolio', 'Services', 'Experience'].map((item) => (
                 <Link 
                   key={item}
                   href={`/${item.toLowerCase()}`} 
@@ -122,10 +122,10 @@ export default function Home() {
               className="md:hidden pb-4 border-t border-gray-200 bg-white"
             >
               <div className="flex flex-col space-y-3 pt-4">
-                {['About', 'Portfolio', 'Services', 'Experience', 'Contact'].map((item) => (
+                {['Home', 'About', 'Portfolio', 'Services', 'Experience'].map((item) => (
                   <Link 
                     key={item}
-                    href={`/${item.toLowerCase()}`} 
+                    href={item === 'Home' ? '/' : `/${item.toLowerCase()}`} 
                     className="text-gray-600 hover:text-teal-600 hover:bg-teal-50 py-3 px-4 rounded-lg font-medium transition-all"
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -153,7 +153,7 @@ export default function Home() {
                 transition={{ delay: 0.2 }}
                 className="inline-block px-4 py-2 bg-teal-100 text-teal-700 rounded-full text-sm font-semibold mb-6 border border-teal-200"
               >
-                ✨ ✨ Open to Medical AI PhD Opportunities & Healthcare Data, Analytics, Technology Roles.
+                ✨ Open to Healthcare Data, Analytics, Technology & Medical AI PhD Opportunities
               </motion.div>
 
               <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight">
@@ -494,7 +494,7 @@ export default function Home() {
                 <a href="https://www.linkedin.com/in/ayoolumi-melehon-b63237179/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-teal-600 transition text-sm">
                   L
                 </a>
-                <a href="https://github.com/ayothetechguy" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-teal-600 transition text-sm">
+                <a href="https://github.com/ayoolumi" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-teal-600 transition text-sm">
                   G
                 </a>
               </div>
