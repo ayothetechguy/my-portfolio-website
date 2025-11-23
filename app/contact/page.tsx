@@ -311,7 +311,6 @@ export default function Contact() {
                     { icon: "📧", title: "Secondary Email", value: "aom00022@students.stir.ac.uk", link: "mailto:info@ayofemimelehon.com" },
                     { icon: "💼", title: "LinkedIn", value: "linkedin.com/in/ayoolumi-melehon", link: "https://www.linkedin.com/in/ayoolumi-melehon-b63237179/" },
                     { icon: "🐙", title: "GitHub", value: "github.com/ayoolumi", link: "https://github.com/ayoolumi" },
-                    { icon: "🎥", title: "YouTube", value: "youtube.com/@ayoolumi_oluwafemi", link: "https://www.youtube.com/@ayoolumi_oluwafemi" },
                     { icon: "📍", title: "Location", value: "Edinburgh/Stirling, Scotland\nOpen to: On-site | Hybrid | Remote", link: null },
                     { icon: "⏰", title: "Response Time", value: "Within 24 hours on business days", link: null }
                   ].map((item, index) => (
