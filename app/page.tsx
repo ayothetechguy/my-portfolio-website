@@ -153,7 +153,7 @@ export default function Home() {
                 transition={{ delay: 0.2 }}
                 className="inline-block px-4 py-2 bg-teal-100 text-teal-700 rounded-full text-sm font-semibold mb-6 border border-teal-200"
               >
-                ✨ Available for Opportunities
+                ✨ Open to PhD Opportunities & Healthcare Data Roles
               </motion.div>
 
               <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight">
@@ -164,9 +164,9 @@ export default function Home() {
                 </span>
               </h1>
 
-              <p className="text-2xl text-gray-700 mb-2 font-semibold">Data Analyst & AI Specialist</p>
+              <p className="text-2xl text-gray-700 mb-2 font-semibold">Healthcare Data Scientist & AI Researcher</p>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Transforming complex data into actionable insights through predictive models, intelligent dashboards, and scalable analytics systems.
+                Bridging frontline care experience with advanced analytics to improve patient outcomes and health system resilience across Scotland
               </p>
 
               <div className="flex flex-wrap gap-3 mb-8 text-sm">
@@ -179,8 +179,12 @@ export default function Home() {
                   CompTIA Data+ Certified
                 </span>
                 <span className="flex items-center gap-2 px-3 py-1 bg-gray-50 border border-gray-200 rounded-full text-gray-700 shadow-sm">
+                  <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                  Scottish Social Care Worker
+                </span>
+                <span className="flex items-center gap-2 px-3 py-1 bg-gray-50 border border-gray-200 rounded-full text-gray-700 shadow-sm">
                   <span className="w-2 h-2 bg-cyan-500 rounded-full"></span>
-                  Grangemouth, Scotland
+                  Edinburgh/Stirling, Scotland
                 </span>
               </div>
 
@@ -224,8 +228,8 @@ export default function Home() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-3xl font-bold text-gray-900">17+</p>
-                      <p className="text-sm text-gray-600 font-medium">Projects Delivered</p>
+                      <p className="text-3xl font-bold text-gray-900">9+</p>
+                      <p className="text-sm text-gray-600 font-medium">Healthcare Projects</p>
                     </div>
                   </div>
                 </div>
@@ -245,28 +249,28 @@ export default function Home() {
             className="text-center mb-10"
           >
             <h2 className="text-4xl font-bold text-gray-900 mb-3">What I Do</h2>
-            <p className="text-xl text-gray-600">Three core specializations driving measurable results</p>
+            <p className="text-xl text-gray-600">Three core specializations driving measurable healthcare impact</p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
                 icon: '🏥',
-                title: 'Healthcare AI',
-                description: 'Building predictive models for NHS wait times, patient diagnostics, and clinical decision support systems.',
+                title: 'Healthcare Analytics',
+                description: 'Building predictive models for emergency care wait times, patient pathways, and population health using Public Health Scotland data.',
                 stats: '85%+ Accuracy',
               },
               {
-                icon: '📊',
-                title: 'Business Intelligence',
-                description: 'Designing executive dashboards and automated reports that transform raw data into strategic insights.',
-                stats: '40% Time Saved',
+                icon: '🤖',
+                title: 'Medical AI & ML',
+                description: 'Developing deep learning systems for clinical decision support, disease detection, and risk assessment in care settings.',
+                stats: '92% Detection Rate',
               },
               {
-                icon: '⚙️',
-                title: 'Analytics Engineering',
-                description: 'Creating scalable data pipelines and ETL systems that power enterprise analytics at scale.',
-                stats: '10M+ Records/Day',
+                icon: '📊',
+                title: 'Health Data Engineering',
+                description: 'Creating GDPR-compliant data pipelines integrating patient records, clinical systems, and population health databases.',
+                stats: '620K+ Records',
               },
             ].map((service, index) => (
               <motion.div
@@ -297,10 +301,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { value: 8, suffix: '+', label: 'Years Experience' },
-              { value: 17, suffix: '+', label: 'Projects Completed' },
+              { value: 9, suffix: '', label: 'Healthcare Projects' },
+              { value: 2, suffix: '+', label: 'Years Social Care' },
               { value: 0, suffix: '', label: 'MSc AI (2025)', special: 'MSc AI' },
-              { value: 100, suffix: '%', label: 'Client Satisfaction' },
+              { value: 0, suffix: '', label: 'Seeking PhD', special: 'PhD 2026' },
             ].map((stat, index) => (
               <motion.div
                 key={index}
@@ -330,18 +334,18 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-10"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-3">Featured Projects</h2>
-            <p className="text-xl text-gray-600">Real-world solutions delivering measurable impact</p>
+            <h2 className="text-4xl font-bold text-gray-900 mb-3">Featured Healthcare Projects</h2>
+            <p className="text-xl text-gray-600">Real-world solutions addressing critical health challenges</p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-6 mb-8">
             {[
-              { title: 'NHS A&E Wait Time Prediction', category: 'Healthcare AI', impact: '30% reduction in wait times', id: 'nhs-ae-wait-time-prediction' },
-              { title: 'Fall Risk Assessment System', category: 'ML & AI', impact: '79.5% accuracy, 0.856 AUC', id: 'fall-risk-assessment' },
-              { title: 'Pneumonia Detection System', category: 'Medical AI', impact: '92% diagnostic accuracy', id: 'pneumonia-detection-system' },
-              { title: 'Executive Sales Dashboard', category: 'Operational Analytics', impact: 'Interactive C-suite BI platform', id: 'executive-sales-dashboard' },
-              { title: 'Social Isolation Detection', category: 'Healthcare AI', impact: 'Automated elderly care monitoring', id: 'social-isolation-detection' },
-              { title: 'Mental Health Demand Forecasting', category: 'ML & AI', impact: 'ARIMA time series forecasting', id: 'mental-health-demand-forecasting' },
+              { title: 'COVID-19 Healthcare Impact Analysis', category: 'Public Health', impact: 'Scotland 14 health boards analysis', id: 'covid-19-healthcare-impact' },
+              { title: 'A&E Wait Time Prediction', category: 'Healthcare AI', impact: '85.67% accuracy prediction model', id: 'nhs-ae-wait-time-prediction' },
+              { title: 'Mental Health Demand Forecasting', category: 'Health Analytics', impact: 'ARIMA forecasting across Scotland', id: 'mental-health-demand-forecasting' },
+              { title: 'Fall Risk Assessment System', category: 'Medical ML', impact: '79.5% accuracy, 85.6% AUC', id: 'fall-risk-assessment' },
+              { title: 'Pneumonia Detection System', category: 'Medical AI', impact: '85.58% diagnostic accuracy', id: 'pneumonia-detection-system' },
+              { title: 'Social Isolation Detection', category: 'Care Technology', impact: 'Automated elderly care monitoring', id: 'social-isolation-detection' },
             ].map((project, index) => {
               const CardContent = (
                 <motion.div
@@ -382,13 +386,6 @@ export default function Home() {
                       className="w-full h-full object-cover"
                     />
                   )}
-                  {project.id === 'executive-sales-dashboard' && (
-                    <img 
-                      src="/projects/executive-bi-1.png"
-                      alt={project.title}
-                      className="w-full h-full object-cover"
-                    />
-                  )}
                   {project.id === 'mental-health-demand-forecasting' && (
                     <img 
                       src="/projects/mental-health-1.png"
@@ -396,7 +393,7 @@ export default function Home() {
                       className="w-full h-full object-cover"
                     />
                   )}
-                  {!project.id || (project.id !== 'nhs-ae-wait-time-prediction' && project.id !== 'pneumonia-detection-system' && project.id !== 'fall-risk-assessment' && project.id !== 'social-isolation-detection' && project.id !== 'executive-sales-dashboard' && project.id !== 'mental-health-demand-forecasting') && (
+                  {!project.id || (!['nhs-ae-wait-time-prediction', 'pneumonia-detection-system', 'fall-risk-assessment', 'social-isolation-detection', 'mental-health-demand-forecasting', 'covid-19-healthcare-impact'].includes(project.id)) && (
                     <div className="flex items-center justify-center h-full">
                       <svg className="w-16 h-16 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -434,7 +431,7 @@ export default function Home() {
               href="/portfolio"
               className="inline-block px-8 py-4 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-700 transition shadow-lg hover:shadow-xl"
             >
-              View All Projects →
+              View All 9 Projects →
             </Link>
           </div>
         </div>
@@ -448,22 +445,22 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Transform Your Data?</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Let&apos;s Advance Healthcare Through Data</h2>
             <p className="text-xl mb-8 text-teal-100">
-              Let&apos;s discuss how analytics and AI can drive measurable results for your organization.
+              Open to PhD opportunities and healthcare data roles. Let&apos;s discuss how we can improve patient outcomes together.
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link 
                 href="/contact"
                 className="px-8 py-4 bg-white text-teal-600 rounded-lg font-semibold hover:bg-gray-100 transition shadow-xl"
               >
-                Schedule a Consultation
+                Get in Touch
               </Link>
               <Link 
                 href="/portfolio"
                 className="px-8 py-4 bg-transparent text-white border-2 border-white rounded-lg font-semibold hover:bg-white/10 transition"
               >
-                View Case Studies
+                Explore My Research
               </Link>
             </div>
           </motion.div>
@@ -476,7 +473,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div>
               <h3 className="text-xl font-bold mb-4">Ayoolumi Melehon</h3>
-              <p className="text-gray-400">Data Analyst & AI Specialist helping organizations leverage data for strategic decision-making.</p>
+              <p className="text-gray-400">Healthcare Data Scientist & AI Researcher specializing in predictive analytics and machine learning for health system improvement.</p>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Quick Links</h4>
@@ -504,7 +501,7 @@ export default function Home() {
             </div>
           </div>
           <div className="border-t border-gray-800 pt-6 text-center text-gray-400 text-sm">
-            <p>© 2025 Ayoolumi Melehon | Grangemouth, Scotland | Built with Next.js & Tailwind CSS</p>
+            <p>© 2025 Ayoolumi Melehon | Edinburgh/Stirling, Scotland</p>
           </div>
         </div>
       </footer>
