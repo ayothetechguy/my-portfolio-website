@@ -4,7 +4,6 @@ import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
-// Sample Projects Data (Synthetic) with Full Details
 const sampleProjects = [
   {
     id: 'emergency-wait-prediction',
@@ -22,15 +21,15 @@ const sampleProjects = [
     github: 'https://github.com/ayothetechguy/emergency-wait-prediction',
     color: 'from-blue-500 to-cyan-500',
     details: {
-      introduction: 'This project develops an intelligent machine learning system designed to predict emergency department wait times in real-time. The system leverages historical patient data, staffing levels, and temporal patterns to provide accurate wait time estimates, helping both patients and healthcare administrators make informed decisions. Built with a focus on practical deployment, the solution includes an interactive Streamlit dashboard for real-time predictions and visualization.',
-      problemStatement: 'Emergency departments across the UK face significant challenges with unpredictable patient volumes and varying wait times. Patients often experience anxiety due to uncertainty about how long they will wait, while hospital administrators struggle to allocate resources efficiently. Current systems provide little to no predictive capability, leading to suboptimal staffing decisions and poor patient experience. The lack of accurate wait time predictions contributes to patient dissatisfaction, inefficient resource utilization, and potential negative health outcomes for time-sensitive cases.',
-      previousGaps: 'Previous approaches to ED wait time prediction have relied heavily on simple averaging methods or basic queueing theory, which fail to capture the complex, non-linear relationships between various factors affecting wait times. Many existing solutions lack real-time capability, only providing retrospective analysis. Additionally, most systems do not account for temporal patterns (time of day, day of week, seasonal variations) or patient acuity levels. The integration of multiple data sources and the deployment of user-friendly interfaces for clinical use have been largely overlooked in prior research.',
-      aimsObjectives: '1. Develop a machine learning model achieving >80% accuracy in predicting ED wait times\n2. Identify and analyze the most significant factors influencing wait times\n3. Create an interactive, real-time prediction dashboard for clinical use\n4. Enable patient check-in functionality with instant wait time estimates\n5. Provide actionable insights for hospital resource planning\n6. Establish a framework for continuous model improvement with new data',
-      datasets: 'The project utilizes a synthetic dataset of 5,000+ patient records generated to mirror realistic NHS emergency department patterns. Features include: arrival time and date, patient age and demographics, arrival mode (ambulance, walk-in, GP referral), initial triage category (1-5), presenting complaint category, current department occupancy, staffing levels, historical wait times, and outcome data. The synthetic data was carefully designed to reflect published NHS statistics on ED attendance patterns, seasonal variations, and wait time distributions.',
-      methodology: 'The project follows a structured data science methodology:\n\n1. Data Preprocessing: Cleaning, handling missing values, feature engineering including temporal features (hour, day of week, month), and encoding categorical variables.\n\n2. Exploratory Data Analysis: Comprehensive visualization of wait time distributions, correlation analysis, and identification of key patterns.\n\n3. Model Development: Comparison of multiple algorithms including Random Forest, Gradient Boosting, XGBoost, and Linear Regression. Hyperparameter tuning using GridSearchCV with 5-fold cross-validation.\n\n4. Model Evaluation: Assessment using MAE, RMSE, R² score, and residual analysis. Feature importance analysis using SHAP values.\n\n5. Deployment: Streamlit web application with real-time prediction capability, interactive visualizations, and patient check-in interface.',
-      findings: '1. Model Performance: Gradient Boosting achieved the best performance with 85.67% accuracy (R² score), MAE of 17.6 minutes, and RMSE of 21.9 minutes.\n\n2. Key Predictors: Department occupancy (32% importance), time of arrival (24%), triage category (18%), and arrival mode (12%) were the most influential features.\n\n3. Temporal Patterns: Wait times peak between 10 AM - 2 PM and 6 PM - 10 PM, with Mondays showing highest average wait times.\n\n4. Seasonal Trends: Winter months (December-February) show 23% longer average wait times compared to summer.\n\n5. Triage Impact: Category 3-4 patients experience the longest and most variable wait times, while Category 1-2 show consistent rapid processing.',
-      limitations: '1. Synthetic Data: While designed to reflect realistic patterns, the model has not been validated on actual NHS data due to data access constraints.\n\n2. External Factors: The model does not account for major incidents, staff sickness, or equipment failures that can significantly impact wait times.\n\n3. Static Staffing: Current model uses historical staffing averages rather than real-time staffing data.\n\n4. Single Department: The model is trained for a single ED configuration and may require retraining for different hospital settings.\n\n5. No Patient Complexity: Individual patient complexity beyond triage category is not captured.',
-      recommendations: '1. Real NHS Data Integration: Partner with NHS trusts to validate and refine the model using actual ED data through appropriate governance frameworks.\n\n2. Real-time Data Feeds: Integrate live data feeds for current occupancy, staffing, and ambulance arrivals.\n\n3. Multi-site Deployment: Extend the framework to support multiple hospitals with transfer learning approaches.\n\n4. Patient Communication: Develop patient-facing mobile app for wait time notifications and queue position updates.\n\n5. Predictive Staffing: Extend the system to provide staffing recommendations based on predicted demand.\n\n6. Deep Learning: Explore LSTM networks for capturing longer-term temporal dependencies and improving accuracy.'
+      introduction: 'This project develops an intelligent machine learning system designed to predict emergency department wait times in real-time. The system leverages historical patient data, staffing levels, and temporal patterns to provide accurate wait time estimates, helping both patients and healthcare administrators make informed decisions.',
+      problemStatement: 'Emergency departments across the UK face significant challenges with unpredictable patient volumes and varying wait times. Patients often experience anxiety due to uncertainty about how long they will wait, while hospital administrators struggle to allocate resources efficiently.',
+      previousGaps: 'Previous approaches to ED wait time prediction have relied heavily on simple averaging methods or basic queueing theory, which fail to capture the complex, non-linear relationships between various factors affecting wait times.',
+      aimsObjectives: '1. Develop a machine learning model achieving over 80% accuracy in predicting ED wait times\n2. Identify and analyze the most significant factors influencing wait times\n3. Create an interactive, real-time prediction dashboard for clinical use\n4. Enable patient check-in functionality with instant wait time estimates',
+      datasets: 'The project utilizes a synthetic dataset of 5,000+ patient records generated to mirror realistic NHS emergency department patterns. Features include arrival time, patient demographics, triage category, department occupancy, and staffing levels.',
+      methodology: 'The project follows a structured data science methodology including data preprocessing, exploratory data analysis, model development with multiple algorithms, hyperparameter tuning, and deployment via Streamlit.',
+      findings: '1. Model Performance: Gradient Boosting achieved 85.67% accuracy with MAE of 17.6 minutes\n2. Key Predictors: Department occupancy, time of arrival, and triage category were most influential\n3. Temporal Patterns: Wait times peak between 10 AM - 2 PM and 6 PM - 10 PM',
+      limitations: '1. Synthetic Data: Model has not been validated on actual NHS data\n2. External Factors: Does not account for major incidents or equipment failures\n3. Single Department: May require retraining for different hospital settings',
+      recommendations: '1. Partner with NHS trusts to validate using actual ED data\n2. Integrate real-time data feeds for occupancy and staffing\n3. Develop patient-facing mobile app for wait time notifications'
     }
   },
   {
@@ -49,25 +48,27 @@ const sampleProjects = [
     github: 'https://github.com/ayothetechguy/readmission-risk',
     color: 'from-purple-500 to-pink-500',
     details: {
-      introduction: 'Hospital readmissions within 30 days of discharge represent a significant burden on healthcare systems, costing the NHS billions annually while indicating potential gaps in care quality. This project develops a predictive machine learning system to identify patients at high risk of readmission at the point of discharge. By enabling targeted interventions for high-risk patients, the system aims to improve patient outcomes while reducing healthcare costs and resource strain.',
-      problemStatement: 'Unplanned hospital readmissions affect approximately 1 in 7 patients in the UK, with significant costs to the NHS (estimated £2.4 billion annually) and negative impacts on patient wellbeing. Current discharge processes often fail to identify patients who would benefit from additional support or follow-up care. Without predictive tools, healthcare providers make discharge decisions based on limited information, leading to preventable readmissions. There is a critical need for data-driven approaches to stratify patient risk and allocate post-discharge resources effectively.',
-      previousGaps: 'Traditional readmission risk assessment relies on clinical judgment or simple scoring systems (like LACE index) that have limited predictive accuracy (typically AUC < 0.70). Previous machine learning approaches have often focused on single conditions or used limited feature sets. Many existing models lack interpretability, making clinical adoption challenging. Furthermore, most published models have not been deployed in practical clinical decision support systems, remaining as research exercises rather than implementable tools. The integration of social determinants of health and medication complexity has been insufficiently explored.',
-      aimsObjectives: '1. Develop a machine learning model achieving AUC-ROC > 0.80 for 30-day readmission prediction\n2. Identify modifiable risk factors that can inform targeted interventions\n3. Create interpretable predictions using SHAP values for clinical transparency\n4. Build a user-friendly clinical decision support dashboard\n5. Enable risk stratification at discharge to guide resource allocation\n6. Provide actionable recommendations for high-risk patient management',
-      datasets: 'The project uses a synthetic dataset of 50,000+ patient discharge records designed to reflect realistic patterns from UK hospital data. Features include: demographics (age, gender, deprivation index), admission details (type, source, specialty), clinical data (diagnosis codes, comorbidity indices, lab values), hospital stay information (length of stay, procedures, complications), medication data (count, high-risk medications), previous healthcare utilization (prior admissions, ED visits), and discharge details (destination, follow-up arrangements). The synthetic data mirrors published NHS readmission statistics and risk factor distributions.',
-      methodology: 'The project employs a comprehensive machine learning pipeline:\n\n1. Data Engineering: Feature extraction from multiple data domains, handling class imbalance using SMOTE, and creating derived features (comorbidity scores, medication complexity indices).\n\n2. Feature Selection: Recursive feature elimination and correlation analysis to identify the most predictive variables while avoiding multicollinearity.\n\n3. Model Development: Comparison of Logistic Regression, Random Forest, XGBoost, and Neural Networks. Ensemble methods explored for improved performance.\n\n4. Hyperparameter Optimization: Bayesian optimization for efficient hyperparameter tuning with 5-fold stratified cross-validation.\n\n5. Model Interpretation: SHAP (SHapley Additive exPlanations) values for global and local feature importance, enabling clinical understanding of predictions.\n\n6. Deployment: Streamlit dashboard with individual patient risk scoring, cohort analysis, and intervention recommendation engine.',
-      findings: '1. Model Performance: XGBoost achieved the best results with AUC-ROC of 0.847, precision of 78.2%, and recall of 74.5% at the optimal threshold.\n\n2. Top Risk Factors: Number of previous admissions (21% importance), length of stay (15%), comorbidity index (14%), age (11%), and medication count (9%) were most predictive.\n\n3. High-Risk Profile: Patients with 2+ admissions in past year, LOS > 7 days, and Charlson Index > 3 had 4.2x higher readmission risk.\n\n4. Modifiable Factors: Inadequate discharge planning, medication reconciliation issues, and lack of follow-up appointments were associated with 35% higher readmission rates.\n\n5. Timing Patterns: 42% of readmissions occurred within the first 10 days, suggesting a critical early post-discharge period.',
-      limitations: '1. Synthetic Data Validation: Model performance on real NHS data may differ; external validation is required.\n\n2. Single Outcome: The model predicts any-cause readmission; condition-specific models may provide more actionable insights.\n\n3. Social Factors: Limited capture of social determinants (housing, social support) which significantly influence readmission risk.\n\n4. Temporal Validity: Healthcare practices change over time; model requires periodic retraining to maintain accuracy.\n\n5. Selection Bias: Patients who die or are transferred are not captured, potentially affecting model generalizability.',
-      recommendations: '1. Clinical Validation: Conduct prospective validation study in NHS setting with appropriate ethical approvals.\n\n2. Integration with EHR: Develop FHIR-compatible APIs for seamless integration with hospital electronic health record systems.\n\n3. Intervention Tracking: Implement closed-loop system to track intervention effectiveness and enable continuous learning.\n\n4. Condition-Specific Models: Develop specialized models for high-volume conditions (heart failure, COPD, diabetes) with tailored risk factors.\n\n5. Cost-Effectiveness Analysis: Conduct economic evaluation of implementing risk-stratified discharge planning.\n\n6. Patient Engagement: Develop patient-facing risk communication tools to improve self-management and care plan adherence.'
+      introduction: 'Hospital readmissions within 30 days of discharge represent a significant burden on healthcare systems. This project develops a predictive machine learning system to identify patients at high risk of readmission at the point of discharge.',
+      problemStatement: 'Unplanned hospital readmissions affect approximately 1 in 7 patients in the UK, with significant costs to the NHS and negative impacts on patient wellbeing. Current discharge processes often fail to identify patients who would benefit from additional support.',
+      previousGaps: 'Traditional readmission risk assessment relies on clinical judgment or simple scoring systems with limited predictive accuracy. Many existing models lack interpretability, making clinical adoption challenging.',
+      aimsObjectives: '1. Develop a machine learning model achieving AUC-ROC over 0.80\n2. Identify modifiable risk factors for targeted interventions\n3. Create interpretable predictions using SHAP values\n4. Build a user-friendly clinical decision support dashboard',
+      datasets: 'The project uses a synthetic dataset of 50,000+ patient discharge records including demographics, admission details, clinical data, medication information, and previous healthcare utilization.',
+      methodology: 'The project employs data engineering, feature selection, model comparison (Logistic Regression, Random Forest, XGBoost), hyperparameter optimization, and SHAP-based interpretation.',
+      findings: '1. XGBoost achieved AUC-ROC of 0.847 and precision of 78.2%\n2. Top risk factors: previous admissions, length of stay, comorbidity index\n3. 42% of readmissions occurred within first 10 days post-discharge',
+      limitations: '1. Synthetic data requires validation on real NHS data\n2. Model predicts any-cause readmission rather than condition-specific\n3. Limited capture of social determinants of health',
+      recommendations: '1. Conduct prospective validation study in NHS setting\n2. Develop FHIR-compatible APIs for EHR integration\n3. Create condition-specific models for heart failure, COPD, diabetes'
     }
   },
 ];
+
+type Project = typeof sampleProjects[0];
 
 function ProjectDetailModal({ 
   project, 
   isOpen, 
   onClose 
 }: { 
-  project: typeof sampleProjects[0] | null; 
+  project: Project | null; 
   isOpen: boolean; 
   onClose: () => void;
 }) {
@@ -168,7 +169,7 @@ function ProjectDetailModal({
               </div>
 
               <div className="flex flex-wrap gap-4 mt-12 pt-8 border-t border-slate-200">
-                
+                <a
                   href={project.liveDemo}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -180,7 +181,7 @@ function ProjectDetailModal({
                   </svg>
                   View Live Demo
                 </a>
-                
+                <a
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -203,7 +204,7 @@ function ProjectDetailModal({
 export default function Portfolio() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<typeof sampleProjects[0] | null>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { scrollYProgress } = useScroll();
 
@@ -226,7 +227,7 @@ export default function Portfolio() {
     };
   }, [isModalOpen]);
 
-  const openProjectModal = (project: typeof sampleProjects[0]) => {
+  const openProjectModal = (project: Project) => {
     setSelectedProject(project);
     setIsModalOpen(true);
   };
@@ -244,10 +245,13 @@ export default function Portfolio() {
       />
 
       <div className="fixed inset-0 z-0 opacity-40">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(circle at 1px 1px, rgb(148 163 184 / 0.3) 1px, transparent 0)',
-          backgroundSize: '40px 40px'
-        }} />
+        <div 
+          className="absolute inset-0"
+          style={{
+            backgroundImage: 'radial-gradient(circle at 1px 1px, rgb(148 163 184 / 0.3) 1px, transparent 0)',
+            backgroundSize: '40px 40px'
+          }} 
+        />
       </div>
 
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
@@ -306,13 +310,6 @@ export default function Portfolio() {
                     }`}
                   >
                     {item}
-                    <motion.span 
-                      className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-teal-500 to-blue-500 ${
-                        item === 'Portfolio' ? 'w-full' : 'w-0'
-                      }`}
-                      whileHover={{ width: '100%' }}
-                      transition={{ duration: 0.3 }}
-                    />
                   </Link>
                 ))}
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -343,7 +340,6 @@ export default function Portfolio() {
               <motion.div 
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
                 className="md:hidden pb-4 border-t border-slate-200 bg-white/90 backdrop-blur-xl rounded-b-2xl"
               >
                 <div className="flex flex-col space-y-2 pt-4">
@@ -389,7 +385,7 @@ export default function Portfolio() {
                 className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-teal-50 to-blue-50 border border-teal-200/50 rounded-full text-sm font-medium text-teal-700 mb-8"
               >
                 <span className="w-2 h-2 bg-teal-500 rounded-full animate-pulse" />
-                Healthcare Data, Analytics, Technology & Medical AI PhD Opportunities
+                Healthcare Data, Analytics, Technology &amp; Medical AI PhD Opportunities
               </motion.div>
 
               <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
@@ -475,10 +471,13 @@ export default function Portfolio() {
                   <div className="relative bg-white rounded-3xl border border-slate-200/80 shadow-lg shadow-slate-200/50 overflow-hidden hover:shadow-2xl hover:shadow-slate-300/50 transition-all duration-500 hover:-translate-y-2">
                     <div className={`relative h-56 bg-gradient-to-br ${project.color} overflow-hidden`}>
                       <div className="absolute inset-0 opacity-20">
-                        <div className="absolute inset-0" style={{
-                          backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-                          backgroundSize: '24px 24px'
-                        }} />
+                        <div 
+                          className="absolute inset-0"
+                          style={{
+                            backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+                            backgroundSize: '24px 24px'
+                          }} 
+                        />
                       </div>
                       
                       <div className="absolute inset-4 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 p-4">
@@ -616,10 +615,13 @@ export default function Portfolio() {
         <section className="py-24 px-4 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-teal-600 via-blue-600 to-purple-600" />
           <div className="absolute inset-0 opacity-30">
-            <div className="absolute inset-0" style={{
-              backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-              backgroundSize: '32px 32px'
-            }} />
+            <div 
+              className="absolute inset-0"
+              style={{
+                backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+                backgroundSize: '32px 32px'
+              }} 
+            />
           </div>
           
           <div className="max-w-4xl mx-auto text-center relative z-10">
@@ -677,7 +679,7 @@ export default function Portfolio() {
                   <span className="text-xl font-bold">Ayoolumi Melehon</span>
                 </div>
                 <p className="text-slate-400 leading-relaxed max-w-md">
-                  Healthcare Data Scientist & AI Researcher specializing in predictive analytics 
+                  Healthcare Data Scientist &amp; AI Researcher specializing in predictive analytics 
                   and machine learning for health system improvement across Scotland.
                 </p>
               </div>
