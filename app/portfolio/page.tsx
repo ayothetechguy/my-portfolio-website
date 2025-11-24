@@ -27,10 +27,10 @@ const sampleProjects = [
       previousGaps: 'Previous approaches to ED wait time prediction have relied heavily on simple averaging methods or basic queueing theory, which fail to capture the complex, non-linear relationships between various factors affecting wait times. Many existing solutions lack real-time capability, only providing retrospective analysis. Additionally, most systems do not account for temporal patterns (time of day, day of week, seasonal variations) or patient acuity levels. The integration of multiple data sources and the deployment of user-friendly interfaces for clinical use have been largely overlooked in prior research.',
       aimsObjectives: '1. Develop a machine learning model achieving >80% accuracy in predicting ED wait times\n2. Identify and analyze the most significant factors influencing wait times\n3. Create an interactive, real-time prediction dashboard for clinical use\n4. Enable patient check-in functionality with instant wait time estimates\n5. Provide actionable insights for hospital resource planning\n6. Establish a framework for continuous model improvement with new data',
       datasets: 'The project utilizes a synthetic dataset of 5,000+ patient records generated to mirror realistic NHS emergency department patterns. Features include: arrival time and date, patient age and demographics, arrival mode (ambulance, walk-in, GP referral), initial triage category (1-5), presenting complaint category, current department occupancy, staffing levels, historical wait times, and outcome data. The synthetic data was carefully designed to reflect published NHS statistics on ED attendance patterns, seasonal variations, and wait time distributions.',
-      methodology: 'The project follows a structured data science methodology:\n\n1. **Data Preprocessing**: Cleaning, handling missing values, feature engineering including temporal features (hour, day of week, month), and encoding categorical variables.\n\n2. **Exploratory Data Analysis**: Comprehensive visualization of wait time distributions, correlation analysis, and identification of key patterns.\n\n3. **Model Development**: Comparison of multiple algorithms including Random Forest, Gradient Boosting, XGBoost, and Linear Regression. Hyperparameter tuning using GridSearchCV with 5-fold cross-validation.\n\n4. **Model Evaluation**: Assessment using MAE, RMSE, R² score, and residual analysis. Feature importance analysis using SHAP values.\n\n5. **Deployment**: Streamlit web application with real-time prediction capability, interactive visualizations, and patient check-in interface.',
-      findings: '1. **Model Performance**: Gradient Boosting achieved the best performance with 85.67% accuracy (R² score), MAE of 17.6 minutes, and RMSE of 21.9 minutes.\n\n2. **Key Predictors**: Department occupancy (32% importance), time of arrival (24%), triage category (18%), and arrival mode (12%) were the most influential features.\n\n3. **Temporal Patterns**: Wait times peak between 10 AM - 2 PM and 6 PM - 10 PM, with Mondays showing highest average wait times.\n\n4. **Seasonal Trends**: Winter months (December-February) show 23% longer average wait times compared to summer.\n\n5. **Triage Impact**: Category 3-4 patients experience the longest and most variable wait times, while Category 1-2 show consistent rapid processing.',
-      limitations: '1. **Synthetic Data**: While designed to reflect realistic patterns, the model has not been validated on actual NHS data due to data access constraints.\n\n2. **External Factors**: The model does not account for major incidents, staff sickness, or equipment failures that can significantly impact wait times.\n\n3. **Static Staffing**: Current model uses historical staffing averages rather than real-time staffing data.\n\n4. **Single Department**: The model is trained for a single ED configuration and may require retraining for different hospital settings.\n\n5. **No Patient Complexity**: Individual patient complexity beyond triage category is not captured.',
-      recommendations: '1. **Real NHS Data Integration**: Partner with NHS trusts to validate and refine the model using actual ED data through appropriate governance frameworks.\n\n2. **Real-time Data Feeds**: Integrate live data feeds for current occupancy, staffing, and ambulance arrivals.\n\n3. **Multi-site Deployment**: Extend the framework to support multiple hospitals with transfer learning approaches.\n\n4. **Patient Communication**: Develop patient-facing mobile app for wait time notifications and queue position updates.\n\n5. **Predictive Staffing**: Extend the system to provide staffing recommendations based on predicted demand.\n\n6. **Deep Learning**: Explore LSTM networks for capturing longer-term temporal dependencies and improving accuracy.'
+      methodology: 'The project follows a structured data science methodology:\n\n1. Data Preprocessing: Cleaning, handling missing values, feature engineering including temporal features (hour, day of week, month), and encoding categorical variables.\n\n2. Exploratory Data Analysis: Comprehensive visualization of wait time distributions, correlation analysis, and identification of key patterns.\n\n3. Model Development: Comparison of multiple algorithms including Random Forest, Gradient Boosting, XGBoost, and Linear Regression. Hyperparameter tuning using GridSearchCV with 5-fold cross-validation.\n\n4. Model Evaluation: Assessment using MAE, RMSE, R² score, and residual analysis. Feature importance analysis using SHAP values.\n\n5. Deployment: Streamlit web application with real-time prediction capability, interactive visualizations, and patient check-in interface.',
+      findings: '1. Model Performance: Gradient Boosting achieved the best performance with 85.67% accuracy (R² score), MAE of 17.6 minutes, and RMSE of 21.9 minutes.\n\n2. Key Predictors: Department occupancy (32% importance), time of arrival (24%), triage category (18%), and arrival mode (12%) were the most influential features.\n\n3. Temporal Patterns: Wait times peak between 10 AM - 2 PM and 6 PM - 10 PM, with Mondays showing highest average wait times.\n\n4. Seasonal Trends: Winter months (December-February) show 23% longer average wait times compared to summer.\n\n5. Triage Impact: Category 3-4 patients experience the longest and most variable wait times, while Category 1-2 show consistent rapid processing.',
+      limitations: '1. Synthetic Data: While designed to reflect realistic patterns, the model has not been validated on actual NHS data due to data access constraints.\n\n2. External Factors: The model does not account for major incidents, staff sickness, or equipment failures that can significantly impact wait times.\n\n3. Static Staffing: Current model uses historical staffing averages rather than real-time staffing data.\n\n4. Single Department: The model is trained for a single ED configuration and may require retraining for different hospital settings.\n\n5. No Patient Complexity: Individual patient complexity beyond triage category is not captured.',
+      recommendations: '1. Real NHS Data Integration: Partner with NHS trusts to validate and refine the model using actual ED data through appropriate governance frameworks.\n\n2. Real-time Data Feeds: Integrate live data feeds for current occupancy, staffing, and ambulance arrivals.\n\n3. Multi-site Deployment: Extend the framework to support multiple hospitals with transfer learning approaches.\n\n4. Patient Communication: Develop patient-facing mobile app for wait time notifications and queue position updates.\n\n5. Predictive Staffing: Extend the system to provide staffing recommendations based on predicted demand.\n\n6. Deep Learning: Explore LSTM networks for capturing longer-term temporal dependencies and improving accuracy.'
     }
   },
   {
@@ -54,15 +54,14 @@ const sampleProjects = [
       previousGaps: 'Traditional readmission risk assessment relies on clinical judgment or simple scoring systems (like LACE index) that have limited predictive accuracy (typically AUC < 0.70). Previous machine learning approaches have often focused on single conditions or used limited feature sets. Many existing models lack interpretability, making clinical adoption challenging. Furthermore, most published models have not been deployed in practical clinical decision support systems, remaining as research exercises rather than implementable tools. The integration of social determinants of health and medication complexity has been insufficiently explored.',
       aimsObjectives: '1. Develop a machine learning model achieving AUC-ROC > 0.80 for 30-day readmission prediction\n2. Identify modifiable risk factors that can inform targeted interventions\n3. Create interpretable predictions using SHAP values for clinical transparency\n4. Build a user-friendly clinical decision support dashboard\n5. Enable risk stratification at discharge to guide resource allocation\n6. Provide actionable recommendations for high-risk patient management',
       datasets: 'The project uses a synthetic dataset of 50,000+ patient discharge records designed to reflect realistic patterns from UK hospital data. Features include: demographics (age, gender, deprivation index), admission details (type, source, specialty), clinical data (diagnosis codes, comorbidity indices, lab values), hospital stay information (length of stay, procedures, complications), medication data (count, high-risk medications), previous healthcare utilization (prior admissions, ED visits), and discharge details (destination, follow-up arrangements). The synthetic data mirrors published NHS readmission statistics and risk factor distributions.',
-      methodology: 'The project employs a comprehensive machine learning pipeline:\n\n1. **Data Engineering**: Feature extraction from multiple data domains, handling class imbalance using SMOTE, and creating derived features (comorbidity scores, medication complexity indices).\n\n2. **Feature Selection**: Recursive feature elimination and correlation analysis to identify the most predictive variables while avoiding multicollinearity.\n\n3. **Model Development**: Comparison of Logistic Regression, Random Forest, XGBoost, and Neural Networks. Ensemble methods explored for improved performance.\n\n4. **Hyperparameter Optimization**: Bayesian optimization for efficient hyperparameter tuning with 5-fold stratified cross-validation.\n\n5. **Model Interpretation**: SHAP (SHapley Additive exPlanations) values for global and local feature importance, enabling clinical understanding of predictions.\n\n6. **Deployment**: Streamlit dashboard with individual patient risk scoring, cohort analysis, and intervention recommendation engine.',
-      findings: '1. **Model Performance**: XGBoost achieved the best results with AUC-ROC of 0.847, precision of 78.2%, and recall of 74.5% at the optimal threshold.\n\n2. **Top Risk Factors**: Number of previous admissions (21% importance), length of stay (15%), comorbidity index (14%), age (11%), and medication count (9%) were most predictive.\n\n3. **High-Risk Profile**: Patients with 2+ admissions in past year, LOS > 7 days, and Charlson Index > 3 had 4.2x higher readmission risk.\n\n4. **Modifiable Factors**: Inadequate discharge planning, medication reconciliation issues, and lack of follow-up appointments were associated with 35% higher readmission rates.\n\n5. **Timing Patterns**: 42% of readmissions occurred within the first 10 days, suggesting a critical early post-discharge period.',
-      limitations: '1. **Synthetic Data Validation**: Model performance on real NHS data may differ; external validation is required.\n\n2. **Single Outcome**: The model predicts any-cause readmission; condition-specific models may provide more actionable insights.\n\n3. **Social Factors**: Limited capture of social determinants (housing, social support) which significantly influence readmission risk.\n\n4. **Temporal Validity**: Healthcare practices change over time; model requires periodic retraining to maintain accuracy.\n\n5. **Selection Bias**: Patients who die or are transferred are not captured, potentially affecting model generalizability.',
-      recommendations: '1. **Clinical Validation**: Conduct prospective validation study in NHS setting with appropriate ethical approvals.\n\n2. **Integration with EHR**: Develop FHIR-compatible APIs for seamless integration with hospital electronic health record systems.\n\n3. **Intervention Tracking**: Implement closed-loop system to track intervention effectiveness and enable continuous learning.\n\n4. **Condition-Specific Models**: Develop specialized models for high-volume conditions (heart failure, COPD, diabetes) with tailored risk factors.\n\n5. **Cost-Effectiveness Analysis**: Conduct economic evaluation of implementing risk-stratified discharge planning.\n\n6. **Patient Engagement**: Develop patient-facing risk communication tools to improve self-management and care plan adherence.'
+      methodology: 'The project employs a comprehensive machine learning pipeline:\n\n1. Data Engineering: Feature extraction from multiple data domains, handling class imbalance using SMOTE, and creating derived features (comorbidity scores, medication complexity indices).\n\n2. Feature Selection: Recursive feature elimination and correlation analysis to identify the most predictive variables while avoiding multicollinearity.\n\n3. Model Development: Comparison of Logistic Regression, Random Forest, XGBoost, and Neural Networks. Ensemble methods explored for improved performance.\n\n4. Hyperparameter Optimization: Bayesian optimization for efficient hyperparameter tuning with 5-fold stratified cross-validation.\n\n5. Model Interpretation: SHAP (SHapley Additive exPlanations) values for global and local feature importance, enabling clinical understanding of predictions.\n\n6. Deployment: Streamlit dashboard with individual patient risk scoring, cohort analysis, and intervention recommendation engine.',
+      findings: '1. Model Performance: XGBoost achieved the best results with AUC-ROC of 0.847, precision of 78.2%, and recall of 74.5% at the optimal threshold.\n\n2. Top Risk Factors: Number of previous admissions (21% importance), length of stay (15%), comorbidity index (14%), age (11%), and medication count (9%) were most predictive.\n\n3. High-Risk Profile: Patients with 2+ admissions in past year, LOS > 7 days, and Charlson Index > 3 had 4.2x higher readmission risk.\n\n4. Modifiable Factors: Inadequate discharge planning, medication reconciliation issues, and lack of follow-up appointments were associated with 35% higher readmission rates.\n\n5. Timing Patterns: 42% of readmissions occurred within the first 10 days, suggesting a critical early post-discharge period.',
+      limitations: '1. Synthetic Data Validation: Model performance on real NHS data may differ; external validation is required.\n\n2. Single Outcome: The model predicts any-cause readmission; condition-specific models may provide more actionable insights.\n\n3. Social Factors: Limited capture of social determinants (housing, social support) which significantly influence readmission risk.\n\n4. Temporal Validity: Healthcare practices change over time; model requires periodic retraining to maintain accuracy.\n\n5. Selection Bias: Patients who die or are transferred are not captured, potentially affecting model generalizability.',
+      recommendations: '1. Clinical Validation: Conduct prospective validation study in NHS setting with appropriate ethical approvals.\n\n2. Integration with EHR: Develop FHIR-compatible APIs for seamless integration with hospital electronic health record systems.\n\n3. Intervention Tracking: Implement closed-loop system to track intervention effectiveness and enable continuous learning.\n\n4. Condition-Specific Models: Develop specialized models for high-volume conditions (heart failure, COPD, diabetes) with tailored risk factors.\n\n5. Cost-Effectiveness Analysis: Conduct economic evaluation of implementing risk-stratified discharge planning.\n\n6. Patient Engagement: Develop patient-facing risk communication tools to improve self-management and care plan adherence.'
     }
   },
 ];
 
-// Project Detail Modal Component
 function ProjectDetailModal({ 
   project, 
   isOpen, 
@@ -104,7 +103,6 @@ function ProjectDetailModal({
             className="relative w-full max-w-5xl bg-white rounded-3xl shadow-2xl my-8"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Modal Header */}
             <div className={`sticky top-0 z-10 bg-gradient-to-r ${project.color} rounded-t-3xl p-8 text-white`}>
               <button
                 onClick={onClose}
@@ -121,7 +119,6 @@ function ProjectDetailModal({
               <h2 className="text-3xl md:text-4xl font-bold mb-4">{project.title}</h2>
               <p className="text-white/90 text-lg max-w-3xl">{project.description}</p>
               
-              {/* Tech Stack in Header */}
               <div className="flex flex-wrap gap-2 mt-6">
                 {project.techStack.map((tech) => (
                   <span key={tech} className="px-3 py-1 bg-white/20 rounded-full text-sm">
@@ -130,7 +127,6 @@ function ProjectDetailModal({
                 ))}
               </div>
 
-              {/* Metrics Row */}
               <div className="flex flex-wrap gap-8 mt-6 pt-6 border-t border-white/20">
                 {project.metrics.map((metric) => (
                   <div key={metric.label}>
@@ -141,7 +137,6 @@ function ProjectDetailModal({
               </div>
             </div>
 
-            {/* Modal Content */}
             <div className="p-8 md:p-12">
               <div className="space-y-10">
                 {sections.map((section, index) => (
@@ -172,7 +167,6 @@ function ProjectDetailModal({
                 ))}
               </div>
 
-              {/* Action Buttons at Bottom */}
               <div className="flex flex-wrap gap-4 mt-12 pt-8 border-t border-slate-200">
                 
                   href={project.liveDemo}
@@ -221,7 +215,6 @@ export default function Portfolio() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Prevent body scroll when modal is open
   useEffect(() => {
     if (isModalOpen) {
       document.body.style.overflow = 'hidden';
@@ -245,43 +238,32 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-50">
-      {/* Scroll Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-500 via-blue-500 to-purple-500 z-[100] origin-left"
         style={{ scaleX: scrollYProgress }}
       />
 
-      {/* Background Pattern */}
       <div className="fixed inset-0 z-0 opacity-40">
         <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, rgb(148 163 184 / 0.3) 1px, transparent 0)`,
+          backgroundImage: 'radial-gradient(circle at 1px 1px, rgb(148 163 184 / 0.3) 1px, transparent 0)',
           backgroundSize: '40px 40px'
         }} />
       </div>
 
-      {/* Floating Gradient Orbs */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
         <motion.div
-          animate={{
-            x: [0, 100, 0],
-            y: [0, -50, 0],
-          }}
+          animate={{ x: [0, 100, 0], y: [0, -50, 0] }}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-20 left-10 w-96 h-96 bg-teal-400/20 rounded-full blur-3xl"
         />
         <motion.div
-          animate={{
-            x: [0, -100, 0],
-            y: [0, 100, 0],
-          }}
+          animate={{ x: [0, -100, 0], y: [0, 100, 0] }}
           transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
           className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl"
         />
       </div>
 
-      {/* Content */}
       <div className="relative z-10">
-        {/* Navigation */}
         <motion.nav 
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -357,7 +339,6 @@ export default function Portfolio() {
               </button>
             </div>
 
-            {/* Mobile Menu */}
             {mobileMenuOpen && (
               <motion.div 
                 initial={{ opacity: 0, height: 0 }}
@@ -393,7 +374,6 @@ export default function Portfolio() {
           </div>
         </motion.nav>
 
-        {/* Hero Section */}
         <section className="pt-20 pb-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <motion.div
@@ -402,7 +382,6 @@ export default function Portfolio() {
               transition={{ duration: 0.8 }}
               className="text-center max-w-4xl mx-auto"
             >
-              {/* Updated Badge */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -413,7 +392,6 @@ export default function Portfolio() {
                 Healthcare Data, Analytics, Technology & Medical AI PhD Opportunities
               </motion.div>
 
-              {/* Main Heading */}
               <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
                 <span className="text-slate-900">Building </span>
                 <span className="bg-gradient-to-r from-teal-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -423,13 +401,11 @@ export default function Portfolio() {
                 <span className="text-slate-900">Healthcare Solutions</span>
               </h1>
 
-              {/* Subtitle */}
               <p className="text-xl text-slate-600 mb-12 leading-relaxed max-w-2xl mx-auto">
                 Transforming complex healthcare data into actionable insights through 
                 machine learning, predictive analytics, and interactive visualizations.
               </p>
 
-              {/* Stats Row */}
               <div className="flex flex-wrap justify-center gap-8 mb-12">
                 {[
                   { value: '85%+', label: 'Model Accuracy' },
@@ -454,10 +430,8 @@ export default function Portfolio() {
           </div>
         </section>
 
-        {/* Projects Section */}
         <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            {/* Section Header */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -486,7 +460,6 @@ export default function Portfolio() {
               </div>
             </motion.div>
 
-            {/* Projects Grid */}
             <div className="grid lg:grid-cols-2 gap-8">
               {sampleProjects.map((project, index) => (
                 <motion.div
@@ -500,17 +473,14 @@ export default function Portfolio() {
                   <div className={`absolute inset-0 bg-gradient-to-r ${project.color} rounded-3xl blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
                   
                   <div className="relative bg-white rounded-3xl border border-slate-200/80 shadow-lg shadow-slate-200/50 overflow-hidden hover:shadow-2xl hover:shadow-slate-300/50 transition-all duration-500 hover:-translate-y-2">
-                    {/* Project Image Area */}
                     <div className={`relative h-56 bg-gradient-to-br ${project.color} overflow-hidden`}>
-                      {/* Placeholder Pattern */}
                       <div className="absolute inset-0 opacity-20">
                         <div className="absolute inset-0" style={{
-                          backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
+                          backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
                           backgroundSize: '24px 24px'
                         }} />
                       </div>
                       
-                      {/* Mock Dashboard Preview */}
                       <div className="absolute inset-4 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 p-4">
                         <div className="flex items-center gap-2 mb-4">
                           <div className="w-3 h-3 rounded-full bg-red-400" />
@@ -533,7 +503,6 @@ export default function Portfolio() {
                         </div>
                       </div>
 
-                      {/* Category Badge */}
                       <div className="absolute top-4 right-4">
                         <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-semibold text-slate-700">
                           {project.category}
@@ -541,7 +510,6 @@ export default function Portfolio() {
                       </div>
                     </div>
 
-                    {/* Project Content */}
                     <div className="p-6">
                       <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-teal-600 transition-colors">
                         {project.title}
@@ -550,7 +518,6 @@ export default function Portfolio() {
                         {project.description}
                       </p>
 
-                      {/* Tech Stack */}
                       <div className="flex flex-wrap gap-2 mb-6">
                         {project.techStack.slice(0, 4).map((tech) => (
                           <span
@@ -567,7 +534,6 @@ export default function Portfolio() {
                         )}
                       </div>
 
-                      {/* Metrics Row */}
                       <div className="flex items-center gap-4 pb-4 border-b border-slate-100">
                         {project.metrics.map((metric) => (
                           <div key={metric.label}>
@@ -577,9 +543,7 @@ export default function Portfolio() {
                         ))}
                       </div>
 
-                      {/* Action Buttons - Always Visible at Bottom */}
                       <div className="flex items-center justify-between mt-4 pt-2">
-                        {/* View Details Button */}
                         <motion.button
                           onClick={() => openProjectModal(project)}
                           whileHover={{ scale: 1.02 }}
@@ -592,7 +556,6 @@ export default function Portfolio() {
                           View Details
                         </motion.button>
 
-                        {/* Live Demo & Code Buttons - Right Side */}
                         <div className="flex items-center gap-2">
                           <motion.a
                             href={project.liveDemo}
@@ -629,7 +592,6 @@ export default function Portfolio() {
               ))}
             </div>
 
-            {/* Coming Soon Notice */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -651,12 +613,11 @@ export default function Portfolio() {
           </div>
         </section>
 
-        {/* CTA Section */}
         <section className="py-24 px-4 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-teal-600 via-blue-600 to-purple-600" />
           <div className="absolute inset-0 opacity-30">
             <div className="absolute inset-0" style={{
-              backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
+              backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
               backgroundSize: '32px 32px'
             }} />
           </div>
@@ -703,7 +664,6 @@ export default function Portfolio() {
           </div>
         </section>
 
-        {/* Footer */}
         <footer className="bg-slate-900 text-white py-16 px-4">
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-4 gap-12 mb-12">
@@ -776,7 +736,6 @@ export default function Portfolio() {
         </footer>
       </div>
 
-      {/* Project Detail Modal */}
       <ProjectDetailModal 
         project={selectedProject} 
         isOpen={isModalOpen} 
