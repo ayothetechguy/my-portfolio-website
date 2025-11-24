@@ -184,7 +184,7 @@ export default function About() {
                 My path to healthcare data science is rooted in a lifelong fascination with medical decision-making and the power of data to transform care. With a foundation in Computer Engineering (ND, HND) and Computer Science (PGD), I initially pursued technology from a systems perspective. But it was my work in Scotland&apos;s social care sector that crystallized my purpose.
               </p>
               <p>
-                As a registered Scottish Social Care Worker, I&apos;ve spent over two years providing hands-on care in adult social care, palliative care relief, community and domiciliary care settings, and specialized end-of-life support for elderly and vulnerable people with challenging behaviors. This wasn&apos;t administrative work—I was on the frontlines, documenting patient needs in real-time, coordinating complex care pathways, managing medication schedules, and ensuring regulatory compliance while navigating the emotional and ethical complexities of palliative care.
+                As a registered Scottish Social Care Worker, I&apos;ve spent over two years providing hands-on care in adult social care, palliative care, community and domiciliary care settings, and specialized end-of-life support for elderly and vulnerable people with challenging behaviors. This wasn&apos;t administrative work—I was on the frontlines, documenting patient needs in real-time, coordinating complex care pathways, managing medication schedules, and ensuring regulatory compliance while navigating the emotional and ethical complexities of palliative care.
               </p>
               <p>
                 During this time, I witnessed firsthand the challenges facing Scotland&apos;s health and social care systems: fragmented data across care settings, delayed clinical insights that could have prevented crises, overwhelmed emergency departments receiving patients who could have been supported in the community, and critical gaps in preventive care coordination. I saw elderly patients cycling through A&E due to disconnected information systems, and I documented care needs that never translated into actionable intelligence for service improvement.
@@ -230,7 +230,7 @@ export default function About() {
                   </li>
                   <li className="flex items-start">
                     <span className="text-teal-600 mr-2">✓</span>
-                    <span>Adult social care and palliative care relief roles</span>
+                    <span>Adult social care and palliative care roles</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-teal-600 mr-2">✓</span>
