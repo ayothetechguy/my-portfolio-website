@@ -1,17 +1,16 @@
 'use client';
 
-import { motion, useScroll } from 'framer-motion';
+import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
-// Sample Projects Data (Synthetic)
+// Sample Projects Data (Synthetic) with Full Details
 const sampleProjects = [
   {
     id: 'emergency-wait-prediction',
     title: 'Emergency Department Wait Time Prediction',
     category: 'Healthcare AI',
     description: 'AI-powered system predicting A&E wait times using Gradient Boosting with 85.67% accuracy. Features real-time patient check-in, interactive visualizations, and clinical decision support.',
-    longDescription: 'This machine learning solution helps emergency departments manage patient flow by accurately predicting wait times based on arrival patterns, acuity levels, staffing, and historical data.',
     image: '/projects/emergency-wait.png',
     techStack: ['Python', 'Scikit-learn', 'Gradient Boosting', 'Streamlit', 'Pandas', 'Plotly'],
     metrics: [
@@ -21,15 +20,24 @@ const sampleProjects = [
     ],
     liveDemo: 'https://emergency-wait-prediction.streamlit.app',
     github: 'https://github.com/ayothetechguy/emergency-wait-prediction',
-    featured: true,
     color: 'from-blue-500 to-cyan-500',
+    details: {
+      introduction: 'This project develops an intelligent machine learning system designed to predict emergency department wait times in real-time. The system leverages historical patient data, staffing levels, and temporal patterns to provide accurate wait time estimates, helping both patients and healthcare administrators make informed decisions. Built with a focus on practical deployment, the solution includes an interactive Streamlit dashboard for real-time predictions and visualization.',
+      problemStatement: 'Emergency departments across the UK face significant challenges with unpredictable patient volumes and varying wait times. Patients often experience anxiety due to uncertainty about how long they will wait, while hospital administrators struggle to allocate resources efficiently. Current systems provide little to no predictive capability, leading to suboptimal staffing decisions and poor patient experience. The lack of accurate wait time predictions contributes to patient dissatisfaction, inefficient resource utilization, and potential negative health outcomes for time-sensitive cases.',
+      previousGaps: 'Previous approaches to ED wait time prediction have relied heavily on simple averaging methods or basic queueing theory, which fail to capture the complex, non-linear relationships between various factors affecting wait times. Many existing solutions lack real-time capability, only providing retrospective analysis. Additionally, most systems do not account for temporal patterns (time of day, day of week, seasonal variations) or patient acuity levels. The integration of multiple data sources and the deployment of user-friendly interfaces for clinical use have been largely overlooked in prior research.',
+      aimsObjectives: '1. Develop a machine learning model achieving >80% accuracy in predicting ED wait times\n2. Identify and analyze the most significant factors influencing wait times\n3. Create an interactive, real-time prediction dashboard for clinical use\n4. Enable patient check-in functionality with instant wait time estimates\n5. Provide actionable insights for hospital resource planning\n6. Establish a framework for continuous model improvement with new data',
+      datasets: 'The project utilizes a synthetic dataset of 5,000+ patient records generated to mirror realistic NHS emergency department patterns. Features include: arrival time and date, patient age and demographics, arrival mode (ambulance, walk-in, GP referral), initial triage category (1-5), presenting complaint category, current department occupancy, staffing levels, historical wait times, and outcome data. The synthetic data was carefully designed to reflect published NHS statistics on ED attendance patterns, seasonal variations, and wait time distributions.',
+      methodology: 'The project follows a structured data science methodology:\n\n1. **Data Preprocessing**: Cleaning, handling missing values, feature engineering including temporal features (hour, day of week, month), and encoding categorical variables.\n\n2. **Exploratory Data Analysis**: Comprehensive visualization of wait time distributions, correlation analysis, and identification of key patterns.\n\n3. **Model Development**: Comparison of multiple algorithms including Random Forest, Gradient Boosting, XGBoost, and Linear Regression. Hyperparameter tuning using GridSearchCV with 5-fold cross-validation.\n\n4. **Model Evaluation**: Assessment using MAE, RMSE, R² score, and residual analysis. Feature importance analysis using SHAP values.\n\n5. **Deployment**: Streamlit web application with real-time prediction capability, interactive visualizations, and patient check-in interface.',
+      findings: '1. **Model Performance**: Gradient Boosting achieved the best performance with 85.67% accuracy (R² score), MAE of 17.6 minutes, and RMSE of 21.9 minutes.\n\n2. **Key Predictors**: Department occupancy (32% importance), time of arrival (24%), triage category (18%), and arrival mode (12%) were the most influential features.\n\n3. **Temporal Patterns**: Wait times peak between 10 AM - 2 PM and 6 PM - 10 PM, with Mondays showing highest average wait times.\n\n4. **Seasonal Trends**: Winter months (December-February) show 23% longer average wait times compared to summer.\n\n5. **Triage Impact**: Category 3-4 patients experience the longest and most variable wait times, while Category 1-2 show consistent rapid processing.',
+      limitations: '1. **Synthetic Data**: While designed to reflect realistic patterns, the model has not been validated on actual NHS data due to data access constraints.\n\n2. **External Factors**: The model does not account for major incidents, staff sickness, or equipment failures that can significantly impact wait times.\n\n3. **Static Staffing**: Current model uses historical staffing averages rather than real-time staffing data.\n\n4. **Single Department**: The model is trained for a single ED configuration and may require retraining for different hospital settings.\n\n5. **No Patient Complexity**: Individual patient complexity beyond triage category is not captured.',
+      recommendations: '1. **Real NHS Data Integration**: Partner with NHS trusts to validate and refine the model using actual ED data through appropriate governance frameworks.\n\n2. **Real-time Data Feeds**: Integrate live data feeds for current occupancy, staffing, and ambulance arrivals.\n\n3. **Multi-site Deployment**: Extend the framework to support multiple hospitals with transfer learning approaches.\n\n4. **Patient Communication**: Develop patient-facing mobile app for wait time notifications and queue position updates.\n\n5. **Predictive Staffing**: Extend the system to provide staffing recommendations based on predicted demand.\n\n6. **Deep Learning**: Explore LSTM networks for capturing longer-term temporal dependencies and improving accuracy.'
+    }
   },
   {
     id: 'patient-readmission-risk',
     title: 'Patient Readmission Risk Prediction',
     category: 'Predictive Analytics',
     description: 'Machine learning model predicting 30-day hospital readmission risk with 82.3% accuracy. Identifies high-risk patients for targeted interventions and care management.',
-    longDescription: 'Using ensemble methods and clinical features, this system helps healthcare providers reduce costly readmissions by identifying at-risk patients before discharge.',
     image: '/projects/readmission-risk.png',
     techStack: ['Python', 'XGBoost', 'Random Forest', 'Streamlit', 'SHAP', 'PostgreSQL'],
     metrics: [
@@ -39,15 +47,170 @@ const sampleProjects = [
     ],
     liveDemo: 'https://readmission-risk.streamlit.app',
     github: 'https://github.com/ayothetechguy/readmission-risk',
-    featured: true,
     color: 'from-purple-500 to-pink-500',
+    details: {
+      introduction: 'Hospital readmissions within 30 days of discharge represent a significant burden on healthcare systems, costing the NHS billions annually while indicating potential gaps in care quality. This project develops a predictive machine learning system to identify patients at high risk of readmission at the point of discharge. By enabling targeted interventions for high-risk patients, the system aims to improve patient outcomes while reducing healthcare costs and resource strain.',
+      problemStatement: 'Unplanned hospital readmissions affect approximately 1 in 7 patients in the UK, with significant costs to the NHS (estimated £2.4 billion annually) and negative impacts on patient wellbeing. Current discharge processes often fail to identify patients who would benefit from additional support or follow-up care. Without predictive tools, healthcare providers make discharge decisions based on limited information, leading to preventable readmissions. There is a critical need for data-driven approaches to stratify patient risk and allocate post-discharge resources effectively.',
+      previousGaps: 'Traditional readmission risk assessment relies on clinical judgment or simple scoring systems (like LACE index) that have limited predictive accuracy (typically AUC < 0.70). Previous machine learning approaches have often focused on single conditions or used limited feature sets. Many existing models lack interpretability, making clinical adoption challenging. Furthermore, most published models have not been deployed in practical clinical decision support systems, remaining as research exercises rather than implementable tools. The integration of social determinants of health and medication complexity has been insufficiently explored.',
+      aimsObjectives: '1. Develop a machine learning model achieving AUC-ROC > 0.80 for 30-day readmission prediction\n2. Identify modifiable risk factors that can inform targeted interventions\n3. Create interpretable predictions using SHAP values for clinical transparency\n4. Build a user-friendly clinical decision support dashboard\n5. Enable risk stratification at discharge to guide resource allocation\n6. Provide actionable recommendations for high-risk patient management',
+      datasets: 'The project uses a synthetic dataset of 50,000+ patient discharge records designed to reflect realistic patterns from UK hospital data. Features include: demographics (age, gender, deprivation index), admission details (type, source, specialty), clinical data (diagnosis codes, comorbidity indices, lab values), hospital stay information (length of stay, procedures, complications), medication data (count, high-risk medications), previous healthcare utilization (prior admissions, ED visits), and discharge details (destination, follow-up arrangements). The synthetic data mirrors published NHS readmission statistics and risk factor distributions.',
+      methodology: 'The project employs a comprehensive machine learning pipeline:\n\n1. **Data Engineering**: Feature extraction from multiple data domains, handling class imbalance using SMOTE, and creating derived features (comorbidity scores, medication complexity indices).\n\n2. **Feature Selection**: Recursive feature elimination and correlation analysis to identify the most predictive variables while avoiding multicollinearity.\n\n3. **Model Development**: Comparison of Logistic Regression, Random Forest, XGBoost, and Neural Networks. Ensemble methods explored for improved performance.\n\n4. **Hyperparameter Optimization**: Bayesian optimization for efficient hyperparameter tuning with 5-fold stratified cross-validation.\n\n5. **Model Interpretation**: SHAP (SHapley Additive exPlanations) values for global and local feature importance, enabling clinical understanding of predictions.\n\n6. **Deployment**: Streamlit dashboard with individual patient risk scoring, cohort analysis, and intervention recommendation engine.',
+      findings: '1. **Model Performance**: XGBoost achieved the best results with AUC-ROC of 0.847, precision of 78.2%, and recall of 74.5% at the optimal threshold.\n\n2. **Top Risk Factors**: Number of previous admissions (21% importance), length of stay (15%), comorbidity index (14%), age (11%), and medication count (9%) were most predictive.\n\n3. **High-Risk Profile**: Patients with 2+ admissions in past year, LOS > 7 days, and Charlson Index > 3 had 4.2x higher readmission risk.\n\n4. **Modifiable Factors**: Inadequate discharge planning, medication reconciliation issues, and lack of follow-up appointments were associated with 35% higher readmission rates.\n\n5. **Timing Patterns**: 42% of readmissions occurred within the first 10 days, suggesting a critical early post-discharge period.',
+      limitations: '1. **Synthetic Data Validation**: Model performance on real NHS data may differ; external validation is required.\n\n2. **Single Outcome**: The model predicts any-cause readmission; condition-specific models may provide more actionable insights.\n\n3. **Social Factors**: Limited capture of social determinants (housing, social support) which significantly influence readmission risk.\n\n4. **Temporal Validity**: Healthcare practices change over time; model requires periodic retraining to maintain accuracy.\n\n5. **Selection Bias**: Patients who die or are transferred are not captured, potentially affecting model generalizability.',
+      recommendations: '1. **Clinical Validation**: Conduct prospective validation study in NHS setting with appropriate ethical approvals.\n\n2. **Integration with EHR**: Develop FHIR-compatible APIs for seamless integration with hospital electronic health record systems.\n\n3. **Intervention Tracking**: Implement closed-loop system to track intervention effectiveness and enable continuous learning.\n\n4. **Condition-Specific Models**: Develop specialized models for high-volume conditions (heart failure, COPD, diabetes) with tailored risk factors.\n\n5. **Cost-Effectiveness Analysis**: Conduct economic evaluation of implementing risk-stratified discharge planning.\n\n6. **Patient Engagement**: Develop patient-facing risk communication tools to improve self-management and care plan adherence.'
+    }
   },
 ];
+
+// Project Detail Modal Component
+function ProjectDetailModal({ 
+  project, 
+  isOpen, 
+  onClose 
+}: { 
+  project: typeof sampleProjects[0] | null; 
+  isOpen: boolean; 
+  onClose: () => void;
+}) {
+  if (!project) return null;
+
+  const sections = [
+    { id: 'introduction', title: '1. Project Introduction', content: project.details.introduction, icon: '📋' },
+    { id: 'problem', title: '2. Problem Statement', content: project.details.problemStatement, icon: '⚠️' },
+    { id: 'gaps', title: '3. Previous Gaps in the Field', content: project.details.previousGaps, icon: '🔍' },
+    { id: 'aims', title: '4. Aims and Objectives', content: project.details.aimsObjectives, icon: '🎯' },
+    { id: 'datasets', title: '5. Datasets Used', content: project.details.datasets, icon: '📊' },
+    { id: 'methodology', title: '6. Methodology', content: project.details.methodology, icon: '⚙️' },
+    { id: 'findings', title: '7. Findings', content: project.details.findings, icon: '💡' },
+    { id: 'limitations', title: '8. Limitations', content: project.details.limitations, icon: '📌' },
+    { id: 'recommendations', title: '9. Recommendations for Future Work', content: project.details.recommendations, icon: '🚀' },
+  ];
+
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[200] flex items-start justify-center overflow-y-auto bg-black/60 backdrop-blur-sm p-4 md:p-8"
+          onClick={onClose}
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 50, scale: 0.95 }}
+            transition={{ duration: 0.3 }}
+            className="relative w-full max-w-5xl bg-white rounded-3xl shadow-2xl my-8"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className={`sticky top-0 z-10 bg-gradient-to-r ${project.color} rounded-t-3xl p-8 text-white`}>
+              <button
+                onClick={onClose}
+                className="absolute top-6 right-6 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+              
+              <span className="inline-block px-3 py-1 bg-white/20 rounded-full text-sm font-medium mb-4">
+                {project.category}
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">{project.title}</h2>
+              <p className="text-white/90 text-lg max-w-3xl">{project.description}</p>
+              
+              {/* Tech Stack in Header */}
+              <div className="flex flex-wrap gap-2 mt-6">
+                {project.techStack.map((tech) => (
+                  <span key={tech} className="px-3 py-1 bg-white/20 rounded-full text-sm">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              {/* Metrics Row */}
+              <div className="flex flex-wrap gap-8 mt-6 pt-6 border-t border-white/20">
+                {project.metrics.map((metric) => (
+                  <div key={metric.label}>
+                    <div className="text-2xl font-bold">{metric.value}</div>
+                    <div className="text-white/70 text-sm">{metric.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Modal Content */}
+            <div className="p-8 md:p-12">
+              <div className="space-y-10">
+                {sections.map((section, index) => (
+                  <motion.div
+                    key={section.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                    className="group"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-br ${project.color} rounded-xl flex items-center justify-center text-xl shadow-lg`}>
+                        {section.icon}
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-teal-600 transition-colors">
+                          {section.title}
+                        </h3>
+                        <div className="text-slate-600 leading-relaxed whitespace-pre-line">
+                          {section.content}
+                        </div>
+                      </div>
+                    </div>
+                    {index < sections.length - 1 && (
+                      <div className="ml-16 mt-8 border-b border-slate-100" />
+                    )}
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Action Buttons at Bottom */}
+              <div className="flex flex-wrap gap-4 mt-12 pt-8 border-t border-slate-200">
+                
+                  href={project.liveDemo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex-1 min-w-[200px] px-6 py-4 bg-gradient-to-r ${project.color} text-white rounded-xl font-semibold text-center hover:shadow-lg transition-all flex items-center justify-center gap-2`}
+                >
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                  View Live Demo
+                </a>
+                
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 min-w-[200px] px-6 py-4 bg-slate-900 text-white rounded-xl font-semibold text-center hover:bg-slate-800 transition-all flex items-center justify-center gap-2"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                  </svg>
+                  View Source Code
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
 
 export default function Portfolio() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
+  const [selectedProject, setSelectedProject] = useState<typeof sampleProjects[0] | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { scrollYProgress } = useScroll();
 
   useEffect(() => {
@@ -57,6 +220,28 @@ export default function Portfolio() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isModalOpen]);
+
+  const openProjectModal = (project: typeof sampleProjects[0]) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setTimeout(() => setSelectedProject(null), 300);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-50">
@@ -217,7 +402,7 @@ export default function Portfolio() {
               transition={{ duration: 0.8 }}
               className="text-center max-w-4xl mx-auto"
             >
-              {/* Badge */}
+              {/* Updated Badge */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -225,7 +410,7 @@ export default function Portfolio() {
                 className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-teal-50 to-blue-50 border border-teal-200/50 rounded-full text-sm font-medium text-teal-700 mb-8"
               >
                 <span className="w-2 h-2 bg-teal-500 rounded-full animate-pulse" />
-                Healthcare Analytics & AI Portfolio
+                Healthcare Data, Analytics, Technology & Medical AI PhD Opportunities
               </motion.div>
 
               {/* Main Heading */}
@@ -301,7 +486,7 @@ export default function Portfolio() {
               </div>
             </motion.div>
 
-            {/* Projects Grid - Bento Style */}
+            {/* Projects Grid */}
             <div className="grid lg:grid-cols-2 gap-8">
               {sampleProjects.map((project, index) => (
                 <motion.div
@@ -310,15 +495,13 @@ export default function Portfolio() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.2 }}
-                  onMouseEnter={() => setHoveredProject(project.id)}
-                  onMouseLeave={() => setHoveredProject(null)}
                   className="group relative"
                 >
                   <div className={`absolute inset-0 bg-gradient-to-r ${project.color} rounded-3xl blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
                   
                   <div className="relative bg-white rounded-3xl border border-slate-200/80 shadow-lg shadow-slate-200/50 overflow-hidden hover:shadow-2xl hover:shadow-slate-300/50 transition-all duration-500 hover:-translate-y-2">
                     {/* Project Image Area */}
-                    <div className={`relative h-64 bg-gradient-to-br ${project.color} overflow-hidden`}>
+                    <div className={`relative h-56 bg-gradient-to-br ${project.color} overflow-hidden`}>
                       {/* Placeholder Pattern */}
                       <div className="absolute inset-0 opacity-20">
                         <div className="absolute inset-0" style={{
@@ -337,16 +520,16 @@ export default function Portfolio() {
                         </div>
                         <div className="grid grid-cols-3 gap-3 mb-4">
                           {project.metrics.map((metric, i) => (
-                            <div key={i} className="bg-white/20 rounded-lg p-3 text-center">
-                              <div className="text-white font-bold text-lg">{metric.value}</div>
+                            <div key={i} className="bg-white/20 rounded-lg p-2 text-center">
+                              <div className="text-white font-bold text-sm">{metric.value}</div>
                               <div className="text-white/70 text-xs">{metric.label}</div>
                             </div>
                           ))}
                         </div>
                         <div className="space-y-2">
-                          <div className="h-3 bg-white/20 rounded w-full" />
-                          <div className="h-3 bg-white/20 rounded w-4/5" />
-                          <div className="h-3 bg-white/20 rounded w-3/5" />
+                          <div className="h-2 bg-white/20 rounded w-full" />
+                          <div className="h-2 bg-white/20 rounded w-4/5" />
+                          <div className="h-2 bg-white/20 rounded w-3/5" />
                         </div>
                       </div>
 
@@ -356,72 +539,89 @@ export default function Portfolio() {
                           {project.category}
                         </span>
                       </div>
-
-                      {/* Hover Overlay */}
-                      <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: hoveredProject === project.id ? 1 : 0 }}
-                        className="absolute inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center gap-4"
-                      >
-                        <motion.a
-                          href={project.liveDemo}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.95 }}
-                          className="px-6 py-3 bg-white text-slate-900 rounded-full font-semibold flex items-center gap-2 shadow-lg"
-                        >
-                          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                          </svg>
-                          Live Demo
-                        </motion.a>
-                        <motion.a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.95 }}
-                          className="px-6 py-3 bg-slate-900 text-white rounded-full font-semibold flex items-center gap-2 shadow-lg"
-                        >
-                          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                          </svg>
-                          Code
-                        </motion.a>
-                      </motion.div>
                     </div>
 
                     {/* Project Content */}
-                    <div className="p-8">
-                      <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-teal-600 transition-colors">
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-teal-600 transition-colors">
                         {project.title}
                       </h3>
-                      <p className="text-slate-600 mb-6 leading-relaxed">
+                      <p className="text-slate-600 mb-4 leading-relaxed text-sm line-clamp-2">
                         {project.description}
                       </p>
 
                       {/* Tech Stack */}
                       <div className="flex flex-wrap gap-2 mb-6">
-                        {project.techStack.map((tech) => (
+                        {project.techStack.slice(0, 4).map((tech) => (
                           <span
                             key={tech}
-                            className="px-3 py-1 bg-slate-100 text-slate-600 rounded-lg text-sm font-medium hover:bg-teal-50 hover:text-teal-700 transition-colors cursor-default"
+                            className="px-2 py-1 bg-slate-100 text-slate-600 rounded-lg text-xs font-medium"
                           >
                             {tech}
                           </span>
                         ))}
+                        {project.techStack.length > 4 && (
+                          <span className="px-2 py-1 bg-slate-100 text-slate-500 rounded-lg text-xs font-medium">
+                            +{project.techStack.length - 4}
+                          </span>
+                        )}
                       </div>
 
-                      {/* Metrics */}
-                      <div className="flex items-center gap-6 pt-6 border-t border-slate-100">
+                      {/* Metrics Row */}
+                      <div className="flex items-center gap-4 pb-4 border-b border-slate-100">
                         {project.metrics.map((metric) => (
                           <div key={metric.label}>
                             <div className="text-lg font-bold text-slate-900">{metric.value}</div>
                             <div className="text-xs text-slate-500">{metric.label}</div>
                           </div>
                         ))}
+                      </div>
+
+                      {/* Action Buttons - Always Visible at Bottom */}
+                      <div className="flex items-center justify-between mt-4 pt-2">
+                        {/* View Details Button */}
+                        <motion.button
+                          onClick={() => openProjectModal(project)}
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          className="px-4 py-2 bg-gradient-to-r from-teal-600 to-blue-600 text-white rounded-lg font-medium text-sm hover:shadow-lg hover:shadow-teal-500/25 transition-all flex items-center gap-2"
+                        >
+                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                          </svg>
+                          View Details
+                        </motion.button>
+
+                        {/* Live Demo & Code Buttons - Right Side */}
+                        <div className="flex items-center gap-2">
+                          <motion.a
+                            href={project.liveDemo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="w-10 h-10 bg-slate-100 hover:bg-teal-500 hover:text-white text-slate-600 rounded-lg flex items-center justify-center transition-all"
+                            title="Live Demo"
+                          >
+                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            </svg>
+                          </motion.a>
+                          <motion.a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="w-10 h-10 bg-slate-100 hover:bg-slate-900 hover:text-white text-slate-600 rounded-lg flex items-center justify-center transition-all"
+                            title="Source Code"
+                          >
+                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                          </motion.a>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -575,6 +775,13 @@ export default function Portfolio() {
           </div>
         </footer>
       </div>
+
+      {/* Project Detail Modal */}
+      <ProjectDetailModal 
+        project={selectedProject} 
+        isOpen={isModalOpen} 
+        onClose={closeModal} 
+      />
     </div>
   );
 }
