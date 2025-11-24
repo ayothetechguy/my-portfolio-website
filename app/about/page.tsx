@@ -139,7 +139,7 @@ export default function About() {
                   href="/contact"
                   className="px-6 py-3 bg-white text-teal-600 border-2 border-teal-600 rounded-lg font-semibold hover:bg-teal-50 transition"
                 >
-                  Get in touch to learn more
+                  Download CV
                 </Link>
               </div>
             </motion.div>
@@ -178,22 +178,31 @@ export default function About() {
             viewport={{ once: true }}
             className="bg-white rounded-2xl border-2 border-gray-200 shadow-lg p-8"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">My Journey: From Care to Code</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">My Journey: From Technology to Care to AI</h2>
             <div className="space-y-4 text-gray-700 text-lg leading-relaxed">
               <p>
-                My path to healthcare data science began on the frontlines of care. As a registered Scottish Social Care Worker with over two years of hands-on experience, I worked directly with vulnerable populations, managing care documentation, coordinating services, and ensuring compliance with stringent regulatory standards.
+                My path to healthcare data science is rooted in a lifelong fascination with medical decision-making and the power of data to transform care. With a foundation in Computer Engineering (ND, HND) and Computer Science (PGD), I initially pursued technology from a systems perspective. But it was my work in Scotland&apos;s social care sector that crystallized my purpose.
               </p>
               <p>
-                During this time, I witnessed firsthand the challenges facing healthcare systems: fragmented data, delayed insights, overwhelmed emergency departments, and gaps in preventive care. I saw how better data systems could transform patient outcomes, streamline workflows, and support clinical decision-making.
+                As a registered Scottish Social Care Worker, I&apos;ve spent over two years providing hands-on care in adult social care, palliative care relief, community and domiciliary care settings, and specialized end-of-life support for elderly and vulnerable people with challenging behaviors. This wasn&apos;t administrative work—I was on the frontlines, documenting patient needs in real-time, coordinating complex care pathways, managing medication schedules, and ensuring regulatory compliance while navigating the emotional and ethical complexities of palliative care.
               </p>
               <p>
-                This experience motivated my transition into data science and AI. I pursued an MSc in Artificial Intelligence at the University of Stirling while simultaneously earning CompTIA Data+ certification, building the technical skills needed to address the healthcare challenges I had observed.
+                During this time, I witnessed firsthand the challenges facing Scotland&apos;s health and social care systems: fragmented data across care settings, delayed clinical insights that could have prevented crises, overwhelmed emergency departments receiving patients who could have been supported in the community, and critical gaps in preventive care coordination. I saw elderly patients cycling through A&E due to disconnected information systems, and I documented care needs that never translated into actionable intelligence for service improvement.
               </p>
               <p>
-                Today, I combine my unique perspective as both a care professional and data scientist to build practical, ethical analytics solutions. I understand the human context behind healthcare data because I've been there—documenting patient needs, navigating care pathways, and seeing the real-world impact of system inefficiencies.
+                But I also witnessed the transformative potential of better data systems. I saw how predictive analytics could identify high-risk patients before deterioration, how integrated care records could prevent dangerous medication errors, and how AI-powered decision support could help care workers like me provide more proactive, personalized support—especially in complex cases involving dementia, challenging behaviors, and end-of-life care.
+              </p>
+              <p>
+                This experience motivated my transition into advanced AI and data science. While continuing my care work, I pursued an MSc in Artificial Intelligence at the University of Stirling and earned CompTIA Data+ certification, building the technical skills needed to address the healthcare challenges I had observed daily. My dissertation focused on behavioral modeling using UK Census data—directly applying AI to understand population health patterns.
+              </p>
+              <p>
+                Today, I combine my unique perspective as both a frontline care professional and AI researcher to build practical, ethical analytics solutions for healthcare. I understand the human context behind every data point because I&apos;ve been there—holding the hand of a dying patient while documenting their care preferences, explaining complex medical information to frightened families, navigating the bureaucracy of care systems, and seeing the real-world consequences of system failures and inefficiencies.
+              </p>
+              <p>
+                I&apos;ve built nine healthcare analytics projects spanning NHS A&E demand forecasting, COVID-19 impact analysis across Scotland&apos;s 14 health boards, mental health service planning, fall risk assessment systems, pneumonia detection using medical imaging AI, and elderly social isolation detection systems. Each project is grounded in the realities of care delivery I witnessed firsthand.
               </p>
               <p className="text-teal-600 font-semibold">
-                My mission is to use AI and advanced analytics to improve patient outcomes, reduce healthcare inequities, and build more resilient health systems across Scotland and beyond.
+                My mission is to use AI and advanced analytics to improve patient outcomes, reduce healthcare inequities, support frontline care workers, and build more resilient, integrated health and social care systems across Scotland and beyond. I want to bridge the gap between technology and compassionate care—ensuring that AI serves the people I once cared for directly.
               </p>
             </div>
           </motion.div>
@@ -221,19 +230,23 @@ export default function About() {
                   </li>
                   <li className="flex items-start">
                     <span className="text-teal-600 mr-2">✓</span>
-                    <span>Direct care coordination for vulnerable populations</span>
+                    <span>Adult social care and palliative care relief roles</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-teal-600 mr-2">✓</span>
-                    <span>Healthcare documentation and regulatory compliance</span>
+                    <span>Community and domiciliary care delivery</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-teal-600 mr-2">✓</span>
-                    <span>Understanding of care pathways and clinical workflows</span>
+                    <span>End-of-life care for elderly and vulnerable populations</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-teal-600 mr-2">✓</span>
-                    <span>Patient advocacy and ethical care delivery</span>
+                    <span>Specialized support for challenging behaviors</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-teal-600 mr-2">✓</span>
+                    <span>Care coordination, medication management, regulatory compliance</span>
                   </li>
                 </ul>
               </div>
@@ -259,6 +272,10 @@ export default function About() {
                   </li>
                   <li className="flex items-start">
                     <span className="text-purple-600 mr-2">✓</span>
+                    <span>Social isolation detection for elderly care</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-purple-600 mr-2">✓</span>
                     <span>620K+ healthcare records processed with GDPR compliance</span>
                   </li>
                 </ul>
@@ -278,29 +295,39 @@ export default function About() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">Research Interests</h2>
-            <p className="text-center text-gray-600 mb-10 text-lg">Areas I'm pursuing for PhD study and collaborative research</p>
+            <p className="text-center text-gray-600 mb-10 text-lg">Areas I&apos;m pursuing for PhD study and collaborative research</p>
             
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 {
-                  icon: '🏥',
-                  title: 'Predictive Healthcare Analytics',
-                  description: 'Machine learning models for emergency department demand forecasting, patient flow optimization, and resource allocation to reduce wait times and improve capacity planning.',
-                },
-                {
-                  icon: '🤖',
-                  title: 'Clinical Decision Support Systems',
-                  description: 'AI-powered diagnostic aids and risk stratification tools that augment clinical judgment while maintaining interpretability and trust in high-stakes medical settings.',
+                  icon: '🚨',
+                  title: 'Emergency Department Flow & Capacity Optimization',
+                  description: 'Machine learning approaches to predict emergency department demand, optimize patient flow, and improve resource allocation across Scottish NHS acute care settings to reduce wait times and prevent capacity crises.',
                 },
                 {
                   icon: '📊',
-                  title: 'Population Health Informatics',
-                  description: 'Large-scale analysis of public health data to identify disease patterns, health inequities, and intervention opportunities across diverse communities.',
+                  title: 'Predictive Risk Stratification for Hospital Admissions',
+                  description: 'Developing early warning systems that identify high-risk patients in community and primary care settings before acute deterioration, enabling proactive interventions to prevent avoidable hospitalizations.',
                 },
                 {
-                  icon: '🔐',
-                  title: 'Privacy-Preserving Health Data Engineering',
-                  description: 'GDPR-compliant data pipelines and federated learning approaches that enable healthcare research while protecting patient privacy and maintaining data sovereignty.',
+                  icon: '⏱️',
+                  title: 'Real-Time Healthcare Resource Allocation & Demand Forecasting',
+                  description: 'Time-series forecasting models for anticipating healthcare service demand across multiple settings (A&E, GP, mental health, social care) to support dynamic resource planning and workforce optimization.',
+                },
+                {
+                  icon: '🔗',
+                  title: 'Integrated Care Pathway Analytics Across Health & Social Care',
+                  description: 'Analyzing patient journeys across fragmented health and social care systems to identify bottlenecks, reduce handoff failures, and optimize care coordination for complex, multi-morbid populations.',
+                },
+                {
+                  icon: '👩',
+                  title: 'Longitudinal Analysis of Chronic Women\'s Health Conditions',
+                  description: 'Machine learning techniques to identify symptom trajectories, treatment response patterns, and quality-of-life predictors in chronic women\'s health conditions using longitudinal patient data and patient-reported outcomes.',
+                },
+                {
+                  icon: '🧬',
+                  title: 'Multi-Omic Data Integration for Dermatological Treatment Discovery',
+                  description: 'Computational biology approaches combining genomic, transcriptomic, and proteomic data to identify novel therapeutic targets and personalized treatment strategies for chronic inflammatory skin diseases.',
                 },
               ].map((item, index) => (
                 <motion.div
@@ -312,8 +339,8 @@ export default function About() {
                   className="bg-white rounded-xl p-6 border-2 border-gray-200 shadow-lg hover:shadow-xl transition-all"
                 >
                   <div className="text-4xl mb-4">{item.icon}</div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                  <h3 className="text-lg font-bold text-gray-900 mb-3">{item.title}</h3>
+                  <p className="text-gray-600 leading-relaxed text-sm">{item.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -355,8 +382,8 @@ export default function About() {
                 <div className="space-y-2 text-gray-700">
                   <p><strong>Data Sources:</strong> Public Health Scotland, NHS datasets</p>
                   <p><strong>Compliance:</strong> GDPR, healthcare data governance</p>
-                  <p><strong>Systems:</strong> Clinical documentation, EHR workflows</p>
-                  <p><strong>Standards:</strong> Care Quality Commission frameworks</p>
+                  <p><strong>Systems:</strong> Care documentation, medication management</p>
+                  <p><strong>Standards:</strong> SSSC frameworks, Care Inspectorate</p>
                   <p><strong>Ethics:</strong> Patient privacy, algorithmic fairness</p>
                 </div>
               </div>
@@ -368,9 +395,9 @@ export default function About() {
                 </h3>
                 <div className="space-y-2 text-gray-700">
                   <p><strong>ML Models:</strong> Classification, regression, clustering, time series</p>
-                  <p><strong>Deep Learning:</strong> CNNs for medical imaging, RNNs for sequences</p>
-                  <p><strong>Statistics:</strong> Hypothesis testing, A/B testing, survival analysis</p>
-                  <p><strong>Evaluation:</strong> Cross-validation, bias detection, model interpretation</p>
+                  <p><strong>Deep Learning:</strong> CNNs for medical imaging, RNNs</p>
+                  <p><strong>Statistics:</strong> Hypothesis testing, survival analysis</p>
+                  <p><strong>Evaluation:</strong> Cross-validation, bias detection</p>
                   <p><strong>Deployment:</strong> Model monitoring, performance tracking</p>
                 </div>
               </div>
@@ -398,7 +425,7 @@ export default function About() {
                 <div className="text-teal-600 font-semibold mb-2">2024-2025</div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">MSc Artificial Intelligence</h3>
                 <p className="text-gray-700 mb-2 font-medium">University of Stirling, Scotland</p>
-                <p className="text-gray-600">Focus: Healthcare AI, Machine Learning, Deep Learning for Medical Imaging</p>
+                <p className="text-gray-600">Dissertation: Behavioral modeling using UK Census data • Focus: Healthcare AI, Machine Learning, Deep Learning for Medical Applications</p>
               </motion.div>
 
               <motion.div 
@@ -424,8 +451,26 @@ export default function About() {
                 className="border-l-4 border-green-500 pl-6 bg-white p-6 rounded-r-xl shadow-lg"
               >
                 <div className="text-green-600 font-semibold mb-2">2015-2018</div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Bachelor's Degree in Computer Science</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">PGD Computer Science</h3>
                 <p className="text-gray-700">Abubakar Tafawa Balewa University, Nigeria</p>
+              </motion.div>
+
+              <motion.div 
+                whileHover={{ x: 8 }}
+                className="border-l-4 border-orange-500 pl-6 bg-white p-6 rounded-r-xl shadow-lg"
+              >
+                <div className="text-orange-600 font-semibold mb-2">2012-2014</div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">HND Computer Engineering</h3>
+                <p className="text-gray-700">Nigeria • Foundation in Systems, Networks, and Technical Computing</p>
+              </motion.div>
+
+              <motion.div 
+                whileHover={{ x: 8 }}
+                className="border-l-4 border-pink-500 pl-6 bg-white p-6 rounded-r-xl shadow-lg"
+              >
+                <div className="text-pink-600 font-semibold mb-2">2009-2011</div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">ND Computer Engineering</h3>
+                <p className="text-gray-700">Nigeria • Technical Foundation in Computer Systems</p>
               </motion.div>
             </div>
           </motion.div>
@@ -442,7 +487,7 @@ export default function About() {
             viewport={{ once: true }}
             className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-2xl border-2 border-teal-200 p-8"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">What I'm Seeking</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">What I&apos;m Seeking</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl p-6 border-2 border-gray-200 shadow-sm">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">🎓 PhD Opportunities</h3>
@@ -451,10 +496,11 @@ export default function About() {
                   Particularly interested in:
                 </p>
                 <ul className="space-y-1 text-gray-600">
-                  <li>• Predictive analytics for healthcare systems</li>
-                  <li>• Clinical decision support research</li>
-                  <li>• Population health informatics</li>
-                  <li>• Privacy-preserving health AI</li>
+                  <li>• Emergency care optimization and demand forecasting</li>
+                  <li>• Clinical decision support systems research</li>
+                  <li>• Integrated health and social care informatics</li>
+                  <li>• Longitudinal patient data analysis</li>
+                  <li>• Multi-omic computational approaches</li>
                 </ul>
               </div>
 
@@ -484,9 +530,9 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Let's Advance Healthcare Together</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Let&apos;s Advance Healthcare Together</h2>
             <p className="text-xl mb-8 text-teal-100">
-              Interested in collaboration, PhD supervision, or exploring my work? I'd love to connect.
+              Interested in collaboration, PhD supervision, or exploring my work? I&apos;d love to connect.
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link 
