@@ -1095,9 +1095,365 @@ Output Formats:
 • Documentation and guides`
     }
   },
+
+
+{
+    id: 'whatsapp-debt-reminder',
+    number: '08',
+    title: 'WhatsApp Debt Reminder System',
+    category: 'Automation Tools',
+    shortDesc: 'Automated payment reminder platform with WhatsApp integration, multi-currency tracking, and smart templates.',
+    description: 'Full-stack WhatsApp-based debt reminder system with automated messaging, multi-currency support (GBP, NGN, USD, EUR), customizable templates, payment tracking, and complete message history logging.',
+    image: '/projects/debt_reminder1.png',
+    fallbackGradient: 'from-teal-500 to-green-500',
+    techStack: ['Python', 'Streamlit', 'SQLite', 'Green API', 'REST APIs', 'WhatsApp'],
+    metrics: { main: '4', label: 'Currencies' },
+    liveDemo: 'https://debt-reminder-pro-bktusfztnyq4xgrt6cgzvw.streamlit.app/',
+    github: 'https://github.com/ayoolumi/debt-reminder-pro',
+    icon: (
+      <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
+        <rect x="6" y="4" width="20" height="24" rx="3" className="fill-teal-500/20 stroke-teal-600" strokeWidth="2" />
+        <path d="M10 12h12M10 16h8M10 20h10" className="stroke-teal-500" strokeWidth="2" strokeLinecap="round" />
+        <circle cx="24" cy="24" r="6" className="fill-green-500" />
+        <path d="M22 24l2 2 3-3" className="stroke-white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
+    details: {
+      introduction: `This project develops an automated WhatsApp-based debt reminder system that sends professional payment reminders with one click. The platform eliminates the awkwardness of manually chasing payments while maintaining professional relationships.
+
+The system features a comprehensive Streamlit dashboard for managing debtors, sending reminders, and tracking payment progress. Built with real-time WhatsApp integration via Green API, it enables instant message delivery directly to recipients' phones.
+
+Key features include multi-currency support (GBP, NGN, USD, EUR), customizable message templates for different situations, payment tracking with partial payment recording, and complete message history logging for audit purposes.
+
+The solution addresses a common pain point for individuals and small businesses who struggle to track debts and follow up consistently, providing a professional, automated approach to payment collection.`,
+
+      problemStatement: `Tracking debts and sending payment reminders manually presents several challenges:
+
+For Individuals:
+- Awkwardness in asking friends or family for money owed
+- Forgetting who owes what and when it was due
+- Inconsistent follow-up leading to lost money
+- No record of communication attempts
+
+For Small Businesses:
+- Time-consuming manual reminder processes
+- Unprofessional or inconsistent messaging
+- Difficulty tracking multiple debtors
+- No audit trail of collection attempts
+- Managing multiple currencies for international clients
+
+The Problem Impact:
+- Lost revenue from uncollected debts
+- Damaged relationships from poor communication
+- Administrative overhead managing spreadsheets
+- No systematic approach to payment collection
+
+Without proper tools, debt collection becomes a burden that many avoid, leading to financial losses and strained relationships.`,
+
+      previousGaps: `Existing solutions for debt tracking and reminders have limitations:
+
+Manual Methods:
+- Spreadsheets lack automation and require manual updates
+- Calendar reminders don't integrate with messaging
+- No professional templates for communication
+- Easy to forget or lose track
+
+Traditional Invoicing Software:
+- Often expensive for personal or small business use
+- Email-based (lower open rates than WhatsApp)
+- Complex setup and learning curve
+- Overkill for simple debt tracking needs
+
+WhatsApp Business:
+- Manual message composition each time
+- No debt tracking integration
+- No payment recording
+- No history or analytics
+
+This project bridges these gaps by combining debt management with automated WhatsApp messaging in a simple, accessible web application.`,
+
+      aimsObjectives: `Primary Aim:
+Develop an accessible, automated debt reminder system that sends professional WhatsApp messages while tracking payments and maintaining communication history.
+
+Specific Objectives:
+
+1. WhatsApp Integration: Implement real-time WhatsApp messaging via Green API for instant reminder delivery
+
+2. Multi-Currency Support: Enable debt tracking in GBP, NGN, USD, and EUR with proper formatting
+
+3. Smart Templates: Provide pre-built message templates for different scenarios:
+   • Friendly reminders
+   • Professional follow-ups
+   • Urgent payment requests
+   • Custom messages
+
+4. Debtor Management: Create comprehensive debtor database with:
+   • Contact information
+   • Amount owed
+   • Due dates
+   • Payment history
+   • Category tagging
+
+5. Payment Tracking: Record partial payments and calculate remaining balances automatically
+
+6. Message History: Maintain complete audit trail of all sent reminders with timestamps and delivery status
+
+7. User-Friendly Interface: Build intuitive Streamlit dashboard accessible to non-technical users
+
+8. Cloud Deployment: Deploy on Streamlit Cloud for 24/7 accessibility`,
+
+      datasets: `Database Schema:
+
+Debtors Table:
+- id (Primary Key)
+- name
+- phone_number
+- amount_owed
+- currency (GBP/NGN/USD/EUR)
+- due_date
+- category (personal/business/family)
+- description
+- created_at
+- updated_at
+
+Payments Table:
+- id (Primary Key)
+- debtor_id (Foreign Key)
+- amount_paid
+- payment_date
+- payment_method
+- notes
+
+Message History Table:
+- id (Primary Key)
+- debtor_id (Foreign Key)
+- message_content
+- template_used
+- sent_at
+- delivery_status
+- response_received
+
+Templates Table:
+- id (Primary Key)
+- name
+- content
+- category
+- is_default
+
+Configuration:
+- API credentials (encrypted)
+- Default currency
+- Sender name
+- Custom settings`,
+
+      methodology: `Development Process:
+
+Phase 1: Architecture Design
+- Database schema design (SQLite)
+- API integration planning (Green API)
+- User interface wireframing
+- Feature prioritization
+
+Phase 2: Backend Development
+- Database implementation with SQLAlchemy
+- Green API integration for WhatsApp
+- Message formatting and template system
+- Payment calculation logic
+
+Phase 3: Frontend Development
+- Streamlit multi-page application
+- Custom CSS for professional dark theme
+- Responsive layout design
+- Form validation and error handling
+
+Phase 4: Feature Implementation
+- Debtor CRUD operations
+- Template management
+- Bulk messaging capability
+- Payment recording
+- History logging
+
+Phase 5: Testing & Refinement
+- API connectivity testing
+- Message delivery verification
+- UI/UX refinement
+- Error handling improvements
+
+Phase 6: Deployment
+- Streamlit Cloud configuration
+- Environment secrets management
+- Production testing
+- Documentation`,
+
+      findings: `System Capabilities:
+
+Dashboard Features:
+- 7 pages: Home, Dashboard, Debtors, Send Reminders, Templates, History, Settings
+- Real-time WhatsApp connection status
+- Quick stats overview (total debtors, messages sent)
+
+Technical Achievements:
+- Instant WhatsApp delivery via Green API
+- Multi-currency formatting with proper symbols
+- Session state management for smooth UX
+- Secure credential handling via environment variables
+
+Message Templates:
+- Friendly Reminder: Casual, relationship-preserving tone
+- Professional Follow-up: Business-appropriate language
+- Urgent Request: Clear urgency without aggression
+- Payment Received: Thank you confirmations
+- Custom: User-defined messages
+
+User Interface:
+- Dark theme matching portfolio aesthetic
+- Teal/blue gradient accents
+- Glass-morphism design elements
+- Mobile-responsive layout
+
+Integration Success:
+- Real-time WhatsApp message delivery
+- Delivery confirmation tracking
+- Two-way chat history preservation
+- Connection status monitoring`,
+
+      limitations: `Current Limitations:
+
+1. Database Persistence: Streamlit Cloud's ephemeral storage means data resets when app sleeps. Production use would require PostgreSQL or MongoDB.
+
+2. Single WhatsApp Account: System connects to one WhatsApp number. Multiple business accounts would require separate instances.
+
+3. No Scheduled Reminders: Current version requires manual sending. Automated scheduling would need background job processing.
+
+4. No Payment Links: Integration with Stripe/PayPal for direct payment collection not implemented.
+
+5. Basic Analytics: Limited reporting on collection success rates and patterns.
+
+6. No Mobile App: Web-only interface; native mobile app would improve accessibility.
+
+7. Manual Data Entry: No import from spreadsheets or other accounting software.
+
+8. Green API Dependency: Reliance on third-party API for WhatsApp connectivity.`,
+
+      recommendations: `Future Enhancements:
+
+Technical Improvements:
+1. Persistent Database: Migrate to PostgreSQL for reliable data storage
+2. Scheduled Reminders: Add automatic reminder scheduling with cron jobs
+3. Payment Integration: Add Stripe/PayPal for direct payment collection
+4. CSV Import/Export: Enable bulk debtor import from spreadsheets
+5. Mobile App: Develop React Native companion app
+
+Feature Additions:
+6. Analytics Dashboard: Collection success rates, response patterns
+7. Email Backup: Send email reminders when WhatsApp fails
+8. PDF Statements: Generate debtor statements for formal requests
+9. Recurring Debts: Support for subscription/recurring payment tracking
+10. Multi-user Support: Team access with role-based permissions
+
+Integration Opportunities:
+11. Accounting Software: QuickBooks, Xero integration
+12. Calendar Sync: Due date reminders in Google/Outlook
+13. Banking APIs: Automatic payment verification
+14. CRM Integration: Link with customer management systems`,
+
+      dashboard: `Streamlit Application Structure:
+
+1. Home Page
+- Professional landing with feature overview
+- Social links and profile information
+- Quick navigation to all features
+
+2. Dashboard
+- Total debtors count
+- Outstanding balance by currency
+- Recent activity feed
+- Quick action buttons
+
+3. Debtors Management
+- Add new debtor form
+- Edit existing debtor details
+- Mark as paid functionality
+- Delete with confirmation
+- Filter by category/status
+
+4. Send Reminders
+- Select debtors (individual or bulk)
+- Choose message template
+- Preview before sending
+- Instant WhatsApp delivery
+- Delivery confirmation
+
+5. Templates
+- View pre-built templates
+- Create custom templates
+- Edit existing templates
+- Template categories
+
+6. History
+- Complete message log
+- Filter by date/debtor
+- Search functionality
+- Export capability
+
+7. Settings
+- WhatsApp connection status
+- API credentials management
+- Default preferences
+- Test message functionality`,
+
+      deliverables: `Project Outputs:
+
+1. Complete Application
+- Full-stack Streamlit application
+- SQLite database with schema
+- Green API integration
+- Custom dark theme UI
+
+2. Source Code
+- GitHub Repository: github.com/ayoolumi/debt-reminder-pro
+- Complete documentation
+- Environment configuration guide
+
+3. Live Deployment
+- Streamlit Cloud: debt-reminder-pro-bktusfztnyq4xgrt6cgzvw.streamlit.app
+- 24/7 availability
+- Secure secrets management
+
+4. Documentation
+- README with setup instructions
+- API integration guide
+- User manual
+
+5. Features Included
+- Multi-currency debt tracking
+- WhatsApp message delivery
+- 6 message templates
+- Payment recording
+- Message history logging
+- Professional UI design
+
+Deployment Locations:
+- Live Demo: Streamlit Cloud
+- Code: github.com/ayoolumi/debt-reminder-pro
+- Portfolio: ayofemimelehon.com/portfolio`
+    }
+  },
+
+
+
+
+
+
+
+
+
+
+
+
   {
     id: 'executive-sales-dashboard',
-    number: '08',
+    number: '09',
     title: 'Executive Sales Dashboard',
     category: 'Business Analytics',
     shortDesc: 'Business intelligence dashboard with £6.39M revenue tracking, £30.57M pipeline, and 18.9% win rate analysis.',
@@ -1536,7 +1892,7 @@ export default function Portfolio() {
             {/* Stats Bar */}
             <div className="flex flex-wrap gap-6 mt-6 pt-6 border-t border-slate-100">
               <div>
-                <div className="text-2xl font-bold text-teal-600">8</div>
+                <div className="text-2xl font-bold text-teal-600">9</div>
                 <div className="text-sm text-slate-500">Projects</div>
               </div>
               <div>
